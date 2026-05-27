@@ -1,0 +1,135 @@
+﻿<Window x:Class="QL_QuanKaraoke_BETA_1.MenuPhongTrong"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QL_QuanKaraoke_BETA_1"
+        mc:Ignorable="d"
+        Title="MenuPhongTrong" Height="290"
+        Width="280" SizeToContent="Height"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent" Name="ChuyenPhongTrongWD"
+        DataContext="{StaticResource MenuPhongTrongVM}">
+    <Border Background="#272537"
+        CornerRadius="14"
+        Padding="20,16,20,20">
+
+        <Border.Effect>
+            <DropShadowEffect Color="#000000"
+                          BlurRadius="30"
+                          ShadowDepth="0"
+                          Opacity="0.6"/>
+        </Border.Effect>
+
+        <StackPanel>
+
+            <!-- ── Tiêu đề + nút đóng ── -->
+            <Grid Margin="0,0,0,12">
+                <TextBlock Text="Chọn trạng thái"
+                       Foreground="White"
+                       FontSize="15"
+                       FontWeight="Bold"
+                       FontFamily="Segoe UI"
+                       VerticalAlignment="Center"/>
+
+                <Button HorizontalAlignment="Right"
+                    Style="{StaticResource CloseButtonStyle}"
+                    Command="{Binding CloseWindowCommand}"
+                    CommandParameter="{Binding ElementName=ChuyenPhongTrongWD}"/>
+            </Grid>
+
+            <!-- ── Đường kẻ ── -->
+            <Separator Background="#353340" Margin="0,0,0,16"/>
+
+            <!-- ══════════════════════
+             NÚT: Mở phòng
+        ══════════════════════ -->
+            <Button Height="46"
+                Cursor="Hand"
+                BorderThickness="0"
+                Margin="0,0,0,10"
+                Command="{Binding MoPhongCommand}"
+                CommandParameter="{Binding ElementName=ChuyenPhongTrongWD}">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="BtnMoPhong" CornerRadius="10" Height="46">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#22C55E" Offset="0"/>
+                                    <GradientStop Color="#86EFAC" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                <TextBlock Text="🟢" FontSize="13"
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,8,0"/>
+                                <TextBlock Text="Mở phòng"
+                                       Foreground="White"
+                                       FontSize="14" FontWeight="Bold"
+                                       FontFamily="Segoe UI"
+                                       VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="BtnMoPhong" Property="Opacity" Value="0.88"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="BtnMoPhong" Property="Opacity" Value="0.72"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <!-- ══════════════════════
+             NÚT: Bảo trì phòng
+        ══════════════════════ -->
+            <Button Height="46"
+                Cursor="Hand"
+                BorderThickness="0"
+                Command="{Binding BaoTriPhongCommand}"
+                CommandParameter="{Binding ElementName=ChuyenPhongTrongWD}"
+                >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="BtnBaoTri" CornerRadius="10" Height="46">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#6B7280" Offset="0"/>
+                                    <GradientStop Color="#9CA3AF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                <TextBlock Text="🔧" FontSize="13"
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,8,0"/>
+                                <TextBlock Text="Bảo trì phòng"
+                                       Foreground="White"
+                                       FontSize="14" FontWeight="Bold"
+                                       FontFamily="Segoe UI"
+                                       VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="BtnBaoTri" Property="Opacity" Value="0.88"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="BtnBaoTri" Property="Opacity" Value="0.72"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </StackPanel>
+    </Border>
+</Window>

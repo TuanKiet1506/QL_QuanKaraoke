@@ -1,0 +1,27 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+Debug/
+Release/
+
+# SQL Server
+*.mdf
+*.ldf
+
+# NuGet
+packages/
+
+# Rider
+.idea/
+
+# Logs
+*.log

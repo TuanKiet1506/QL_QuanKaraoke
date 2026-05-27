@@ -1,0 +1,69 @@
+﻿<Application x:Class="QL_QuanKaraoke_BETA_1.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:viewmodel="clr-namespace:QL_QuanKaraoke_BETA_1.ViewModel"
+             xmlns:local="clr-namespace:QL_QuanKaraoke_BETA_1"
+             StartupUri="MainWindow.xaml"
+             >
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ViewModelResource/ViewModelResource.xaml"/>
+                <ResourceDictionary Source="/Theme/ButtonDarkTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/ControlBarDarkTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/MenuButtonDarkTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/TextBoxDarkTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/PasswordBoxDarkTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/ComboboxDarkTheme.xaml"/>
+                <ResourceDictionary Source="/Theme/DatePickerDarkTheme.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewmodel:TrangChuViewModel}">
+                <local:TrangChuUC/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodel:DatPhongViewModel}">
+                <local:DatPhongUC/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewmodel:QL_NhanVienViewModel}">
+                <local:QL_NHANVIENUC/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewmodel:QL_KhachHangViewModel}">
+                <local:QL_KhachHangUC/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewmodel:QL_HoaDonViewModel}">
+                <local:QL_HoaDonUC/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewmodel:QL_PhongViewModel}">
+                <local:QL_PhongUC/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewmodel:QL_BangGiaViewModel}">
+                <local:QL_BangGiaUC/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewmodel:QL_HangThanhVienViewModel}">
+                <local:QL_HangThanhVienUC/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewmodel:QL_DichVuViewModel}">
+                <local:QL_DichVuUC/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewmodel:QL_HeThongViewModel}">
+                <local:QL_HeThongUC/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewmodel:QL_DangNhapViewModel}">
+                <local:QL_DangNhap/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+    
+</Application>

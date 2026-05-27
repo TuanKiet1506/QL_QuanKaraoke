@@ -1,0 +1,286 @@
+﻿<Window x:Class="QL_QuanKaraoke_BETA_1.AddPhong"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QL_QuanKaraoke_BETA_1"
+        mc:Ignorable="d"
+        Title="AddPhong" Height="550" Width="600"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Name="AddPhongWD" DataContext="{StaticResource AddPhongVM}">
+    <Border CornerRadius="20" Background="#1A1A2E">
+
+        <Border.Effect>
+            <DropShadowEffect Color="#000000" BlurRadius="30" ShadowDepth="0" Opacity="0.6"/>
+        </Border.Effect>
+
+        <Grid>
+
+            <Border Height="3"
+                    VerticalAlignment="Top"
+                    CornerRadius="20,20,0,0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#F07070" Offset="0"/>
+                        <GradientStop Color="#F9A8A8" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+            <StackPanel>
+
+                <!-- HEADER: Tiêu đề + nút đóng -->
+                <Grid Margin="24,20,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Icon + Tiêu đề -->
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Border Width="36" Height="36"
+                                CornerRadius="10"
+                                Margin="0,0,12,0">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#F07070" Offset="0"/>
+                                    <GradientStop Color="#F9A8A8" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="🏠" 
+                                       FontSize="20" 
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center"/>
+                        </Border>
+
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="THÊM PHÒNG MỚI"
+                                       Foreground="#F07070"
+                                       FontSize="16"
+                                       FontWeight="Bold"
+                                       FontFamily="Segoe UI"/>
+                            <TextBlock Text="Xác nhận thông tin của phòng"
+                                       Foreground="#888899"
+                                       FontSize="11"
+                                       FontFamily="Segoe UI"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Nút đóng -->
+                    <Button Grid.Column="1"
+                            Style="{StaticResource CloseButtonStyle}" 
+                            Command="{Binding ExitCommand}"
+                            CommandParameter="{Binding ElementName=AddPhongWD}"
+                            VerticalAlignment="Top"/>
+                </Grid>
+
+                <!-- DIVIDER -->
+                <Border Height="1"
+                        Background="#2A2A40"
+                        Margin="24,16,24,0"/>
+
+                <!-- NỘI DUNG FORM -->
+                <StackPanel Margin="32,28,32,0">
+
+                    <!-- Mô tả -->
+                    <Border Background="#22223A"
+                            CornerRadius="8"
+                            Padding="14,10"
+                            Margin="0,0,0,24">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="ℹ"
+                                       Foreground="#F07070"
+                                       FontSize="14"
+                                       VerticalAlignment="Top"
+                                       Margin="0,0,8,0"/>
+                            <TextBlock Text="Vui lòng nhập đúng thông tin để xác nhận thông tin của phòng mới."
+                                       Foreground="#AAAACC"
+                                       FontSize="12"
+                                       FontFamily="Segoe UI"
+                                       TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+
+
+                    <!-- HỌ TÊN -->
+                    <TextBlock Text="Tên Phòng"
+                               Foreground="#CCCCDD"
+                               FontSize="12"
+                               FontFamily="Segoe UI"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,6"/>
+
+                    <Border Background="#353340"
+                            CornerRadius="8"
+                            Height="46"
+                            Margin="0,0,0,16">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="44"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="🏷️"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       FontSize="20"
+                                       Foreground="#888899"/>
+
+                            <TextBox Grid.Column="1"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     Foreground="#E6E6E6"
+                                     FontSize="14"
+                                     VerticalContentAlignment="Center"
+                                     Padding="4,0,10,0"
+                                     Style="{StaticResource TextBoxTheme}"
+                                     Tag="Nhập tên phòng"
+                                     Text="{Binding TenPhong, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- SỐ ĐIỆN THOẠI -->
+                    <TextBlock Text="Sức chứa"
+                               Foreground="#CCCCDD"
+                               FontSize="12"
+                               FontFamily="Segoe UI"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,6"/>
+
+                    <Border Background="#353340"
+                            CornerRadius="8"
+                            Height="46"
+                            Margin="0,0,0,16">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="44"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="👥"
+                                       Foreground="#888899"
+                                       FontSize="15"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBox Grid.Column="1"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     Foreground="#E6E6E6"
+                                     FontSize="14"
+                                     VerticalContentAlignment="Center"
+                                     Padding="4,0,10,0"
+                                     Style="{StaticResource TextBoxTheme}"
+                                     Tag="Sức chứa"
+                                     Text="{Binding SucChua, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                    </Border>
+
+                    <TextBlock Text="Loại Phòng"
+                               Foreground="#CCCCDD"
+                               FontSize="12"
+                               FontFamily="Segoe UI"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,6"/>
+
+                    <Border Background="#353340"
+                            CornerRadius="8"
+                            Height="46"
+                            Margin="0,0,0,28">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="44"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="👑"
+                                       Foreground="#888899"
+                                       FontSize="15"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+
+                            <ComboBox Grid.Column="1"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     Foreground="#E6E6E6" 
+                                     FontSize="14"
+                                     VerticalContentAlignment="Center"
+                                     Padding="4,0,10,0"
+                                     Style="{StaticResource ModernComboBox}"
+                                     ItemsSource="{Binding DSLoaiPhong, UpdateSourceTrigger=PropertyChanged}"
+                                     SelectedItem="{Binding SelectedLoaiPhong, UpdateSourceTrigger=PropertyChanged}"
+                                     DisplayMemberPath="TenLoai"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- BUTTON XÁC NHẬN -->
+                    <Button Height="46"
+                            Cursor="Hand"
+                            BorderThickness="0" 
+                            Command="{Binding XacNhanCommand}"
+                            CommandParameter="{Binding ElementName=AddPhongWD}" >
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+
+                                <Border x:Name="ConfirmBorder"
+                                        CornerRadius="8"
+                                        Height="46">
+
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                            <GradientStop Color="#F07070" Offset="0"/>
+                                            <GradientStop Color="#F9A8A8" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center">
+
+                                        <TextBlock Text="✔"
+                                                   Foreground="White"
+                                                   FontSize="14"
+                                                   VerticalAlignment="Center"
+                                                   Margin="0,0,8,0"/>
+
+                                        <TextBlock Text="XÁC NHẬN"
+                                                   Foreground="White"
+                                                   FontSize="14"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI"
+                                                   VerticalAlignment="Center"/>
+                                    </StackPanel>
+
+                                </Border>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="ConfirmBorder"
+                                                Property="Opacity"
+                                                Value="0.88"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter TargetName="ConfirmBorder"
+                                                Property="Opacity"
+                                                Value="0.72"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+    </Border>
+
+</Window>

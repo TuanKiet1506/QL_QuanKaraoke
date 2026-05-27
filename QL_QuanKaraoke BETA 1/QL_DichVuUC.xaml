@@ -1,0 +1,408 @@
+﻿<UserControl x:Class="QL_QuanKaraoke_BETA_1.QL_DichVuUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QL_QuanKaraoke_BETA_1"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="1000" DataContext="{StaticResource QL_DichVuVM}">
+    <UserControl.Resources>
+
+        <!-- ══════════════════════════════════════
+             LISTVIEW — COLUMN HEADER
+        ══════════════════════════════════════ -->
+        <Style x:Key="HeaderStyle" TargetType="GridViewColumnHeader">
+            <Setter Property="Background"           Value="#22203A"/>
+            <Setter Property="Foreground"           Value="#9490B0"/>
+            <Setter Property="FontSize"             Value="11"/>
+            <Setter Property="FontWeight"           Value="SemiBold"/>
+            <Setter Property="Padding"              Value="14,10"/>
+            <Setter Property="BorderThickness"      Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GridViewColumnHeader">
+                        <Border Background="{TemplateBinding Background}"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ══════════════════════════════════════
+             LISTVIEW — ROW (ListViewItem)
+        ══════════════════════════════════════ -->
+        <Style x:Key="NvRowStyle" TargetType="ListViewItem">
+            <Setter Property="Background"      Value="Transparent"/>
+            <Setter Property="Foreground"      Value="#F0EEF8"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding"         Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <Border x:Name="RowBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="0,0,0,1"
+                                BorderBrush="#1E1C31"
+                                Padding="0,2">
+                            <GridViewRowPresenter
+                                Columns="{Binding Path=View.Columns,
+                                          RelativeSource={RelativeSource AncestorType=ListView}}"
+                                Content="{TemplateBinding Content}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="RowBorder" Property="Background" Value="#22203A"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="RowBorder" Property="Background" Value="#2A2740"/>
+                                <Setter TargetName="RowBorder" Property="BorderBrush" Value="#7C5CFC"/>
+                                <Setter TargetName="RowBorder" Property="BorderThickness" Value="0,0,0,1"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ══════════════════════════════════════
+             LISTVIEW CHÍNH
+        ══════════════════════════════════════ -->
+        <Style x:Key="NvListView" TargetType="ListView">
+            <Setter Property="Background"       Value="#1A1829"/>
+            <Setter Property="BorderThickness"  Value="1.5"/>
+            <Setter Property="BorderBrush"      Value="#2E2B4A"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility"   Value="Auto"/>
+        </Style>
+
+        <!-- ══════════════════════════════════════
+             BADGE: TRẠNG THÁI
+             TrangThai = 1  → Đang làm việc (xanh)
+             TrangThai = 0  → Nghỉ việc / Bị khóa (xem ChucVu/flag)
+             → Dùng DataTrigger trực tiếp trong CellTemplate
+        ══════════════════════════════════════ -->
+
+    </UserControl.Resources>
+
+    <!-- ══════════════════════════════════════════════════════════
+         ROOT
+    ══════════════════════════════════════════════════════════ -->
+    <Grid Margin="24,20,24,20">
+        <Grid.RowDefinitions>
+            <!-- Tiêu đề -->
+            <RowDefinition Height="Auto"/>
+            <!-- Gap -->
+            <RowDefinition Height="20"/>
+            <!-- Input: HoTen + SoDienThoai -->
+            <RowDefinition Height="Auto"/>
+            <!-- Gap -->
+            <RowDefinition Height="14"/>
+            <!-- Toolbar: Filter + Search -->
+            <RowDefinition Height="Auto"/>
+            <!-- Gap -->
+            <RowDefinition Height="14"/>
+            <!-- ListView -->
+            <RowDefinition Height="*"/>
+            <!-- Gap -->
+            <RowDefinition Height="14"/>
+            <!-- Buttons -->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- ══════════ ROW 0 — Tiêu đề ══════════ -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Text="🍽️" FontSize="22" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="#F88888"/>
+            <TextBlock Text="Quản Lý Dịch Vụ"
+                       Foreground="White"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <!-- ══════════ ROW 2 — Input HoTen + SoDienThoai ══════════ -->
+        <Border Grid.Row="2"
+        Background="#1E1C31"
+        CornerRadius="16"
+        BorderBrush="#2E2B4A"
+        BorderThickness="1.5"
+        Padding="24,12"
+        Margin="0,4,0,0">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- ================= TÊN DỊCH VỤ ================= -->
+
+                <StackPanel Grid.Column="0">
+
+                    <TextBlock Text="Tên dịch vụ"
+                       Foreground="#9490B0"
+                       FontSize="12"
+                       FontWeight="SemiBold"
+                       Margin="4,0,0,6"/>
+
+                    <Border Background="#353340"
+                    CornerRadius="10"
+                    Height="40">
+
+                        <TextBox Text="{Binding TenDichVu}"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         Foreground="#E6E6E6"
+                         FontSize="14"
+                         Padding="12,0"
+                         VerticalContentAlignment="Center"
+                         Style="{StaticResource TextBoxTheme}"
+                         IsReadOnly="True"/>
+                    </Border>
+                </StackPanel>
+
+                <!-- ================= ĐƠN GIÁ ================= -->
+
+                <StackPanel Grid.Column="2">
+
+                    <TextBlock Text="Đơn giá"
+                       Foreground="#9490B0"
+                       FontSize="12"
+                       FontWeight="SemiBold"
+                       Margin="4,0,0,6"/>
+
+                    <Border Background="#353340"
+                    CornerRadius="10"
+                    Height="40">
+
+                        <TextBox Text="{Binding DonGia,
+                                        StringFormat={}{0:N0}đ}"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         Foreground="#E6E6E6"
+                         FontSize="14"
+                         Padding="12,0"
+                         VerticalContentAlignment="Center"
+                         Style="{StaticResource TextBoxTheme}"
+                         IsReadOnly="True"/>
+                    </Border>
+                </StackPanel>
+
+                <!-- ================= TỒN KHO ================= -->
+
+                <StackPanel Grid.Column="4">
+
+                    <TextBlock Text="Tồn kho"
+                       Foreground="#9490B0"
+                       FontSize="12"
+                       FontWeight="SemiBold"
+                       Margin="4,0,0,6"/>
+
+                    <Border Background="#353340"
+                    CornerRadius="10"
+                    Height="40">
+
+                        <TextBox Text="{Binding TonKho}"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         Foreground="#E6E6E6"
+                         FontSize="14"
+                         Padding="12,0"
+                         VerticalContentAlignment="Center"
+                         Style="{StaticResource TextBoxTheme}"
+                         IsReadOnly="True"/>
+                    </Border>
+                </StackPanel>
+
+            </Grid>
+        </Border>
+
+        <!-- ══════════ ROW 4 — Filter + Search ══════════ -->
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="14"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox Grid.Column="0"
+                        Height="40"
+                        Style="{StaticResource ModernComboBox}"
+                        ItemsSource="{Binding DSDonViTinh, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding DonViTinhDangChon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+/>
+            <Grid Grid.Column="2">
+                <Border Background="#2A2740"
+                CornerRadius="8"
+                Height="46"
+                Margin="0">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="44"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Width="18"
+                       Height="18"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="🔍"/>
+
+                        <TextBox Grid.Column="1" Text="{Binding TuKhoa, UpdateSourceTrigger=PropertyChanged}"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         Foreground="#E6E6E6"
+                         FontSize="14"
+                         VerticalContentAlignment="Center"
+                         Padding="4,0,10,0"
+                         Style="{StaticResource TextBoxTheme}"
+                         Tag="Tìm kiếm" Margin="0,0,-5,0"/>
+                    </Grid>
+
+                </Border>
+            </Grid>
+
+
+
+        </Grid>
+
+        <!-- ══════════ ROW 6 — ListView ══════════ -->
+        <Border Grid.Row="6"
+                CornerRadius="14"
+                ClipToBounds="True"
+                BorderThickness="1.5"
+                BorderBrush="#2E2B4A">
+            <ListView Style="{StaticResource NvListView}"
+                      ItemContainerStyle="{StaticResource NvRowStyle}"
+                      ItemsSource="{Binding DSDichVuView}"
+                      SelectedItem="{Binding SelectedDichVu}">
+
+                <ListView.View>
+                    <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
+
+                        <!-- Mã NV -->
+                        <GridViewColumn Header="Tên dịch vụ" Width="150">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding TenDichVu}"
+                                               Foreground="#9490B0"
+                                               FontSize="12"
+                                               Padding="14,10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <!-- Tên đăng nhập -->
+                        <GridViewColumn Header="Đơn vị tính" Width="120">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DonViTinh}"
+                                               Foreground="#7C5CFC"
+                                               FontSize="12"
+                                               FontWeight="SemiBold"
+                                               Padding="14,10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <!-- Họ tên -->
+                        <GridViewColumn Header="Đơn giá" Width="150">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DonGia, StringFormat={}{0:N0}đ}"
+                                               Foreground="#F0EEF8"
+                                               FontSize="12"
+                                               FontWeight="SemiBold"
+                                               Padding="14,10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+                        <GridViewColumn Header="Tồn kho" Width="120">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding TonKho}"
+                                               Foreground="#F0EEF8"
+                                               FontSize="12"
+                                               FontWeight="SemiBold"
+                                               Padding="14,10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Cảnh báo tồn kho" Width="120">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding CanhBaoTonKho}"
+                       Foreground="#F0EEF8"
+                       FontSize="12"
+                       FontWeight="SemiBold"
+                       Padding="14,10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <!-- Số điện thoại -->
+
+
+
+                    </GridView>
+                </ListView.View>
+
+            </ListView>
+        </Border>
+
+        <!-- ══════════ ROW 8 — Buttons ══════════ -->
+        <Grid Grid.Row="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="8"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="8"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Thêm -->
+            <Button Grid.Column="0"
+                    Content="➕  Thêm dịch vụ"
+                    Height="40"
+                    Command="{Binding ThemCommand}">
+
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#059669" Offset="0"/>
+                        <GradientStop Color="#34D399" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+            <!-- Sửa -->
+            <Button Grid.Column="2"
+                    Content="✏  Sửa dịch vụ"
+                    Height="40"
+                    Command="{Binding SuaDichVuCommand}"
+                    >
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#1D4ED8" Offset="0"/>
+                        <GradientStop Color="#38BDF8" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+
+            </Button>
+
+
+
+        </Grid>
+
+    </Grid>
+</UserControl>

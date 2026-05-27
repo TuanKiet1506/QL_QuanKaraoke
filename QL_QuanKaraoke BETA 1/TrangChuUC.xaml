@@ -1,0 +1,442 @@
+﻿<UserControl x:Class="QL_QuanKaraoke_BETA_1.TrangChuUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"             
+             mc:Ignorable="d"
+             d:DesignHeight="800"
+             d:DesignWidth="1200"
+             Background="#1E1B2E" DataContext="{StaticResource TrangChuVM}">
+
+    <UserControl.Resources>
+
+        <!-- ================= CARD ================= -->
+
+        <Style x:Key="StatCard" TargetType="Border">
+            <Setter Property="Background" Value="#2A2740"/>
+            <Setter Property="CornerRadius" Value="18"/>
+            <Setter Property="Padding" Value="22"/>
+            <Setter Property="Margin" Value="0,0,16,0"/>
+        </Style>
+
+        <Style x:Key="StatNumber" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="StatTitle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#9F9ABF"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Margin" Value="0,6,0,0"/>
+        </Style>
+
+        <!-- ================= CHART CARD ================= -->
+
+        <Style x:Key="ChartCard" TargetType="Border">
+            <Setter Property="Background" Value="#2A2740"/>
+            <Setter Property="CornerRadius" Value="18"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Margin" Value="0,0,16,0"/>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid Margin="28">
+
+        <Grid.RowDefinitions>
+
+            <!-- Header -->
+            <RowDefinition Height="Auto"/>
+
+            <!-- Space -->
+            <RowDefinition Height="24"/>
+
+            <!-- Cards -->
+            <RowDefinition Height="Auto"/>
+
+            <!-- Space -->
+            <RowDefinition Height="28"/>
+
+            <!-- Charts -->
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <!-- ===================================================== -->
+        <!-- HEADER -->
+        <!-- ===================================================== -->
+
+        <StackPanel Grid.Row="0">
+
+            <TextBlock Text="📊 Tổng quan"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       Foreground="#F88888"/>
+
+            <TextBlock Text="Xin chào ! Đây là tổng quan hoạt động của bạn"
+                       FontSize="15"
+                       Foreground="#AAA6C3"
+                       Margin="0,8,0,0"/>
+
+        </StackPanel>
+
+        <!-- ===================================================== -->
+        <!-- STATISTICS CARDS -->
+        <!-- ===================================================== -->
+
+        <Grid Grid.Row="2">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+
+            <!-- ================= DOANH THU ================= -->
+
+            <Border Grid.Column="0"
+                    Style="{StaticResource StatCard}">
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel>
+
+                        <Viewbox HorizontalAlignment="Left" MaxHeight="30" MaxWidth="120" Stretch="Uniform">
+                            <TextBlock Text="{Binding DoanhThuThang}"
+               Style="{StaticResource StatNumber}"
+               HorizontalAlignment="Left"/>
+                        </Viewbox>
+                        <TextBlock Text="Doanh thu tháng này"
+                                   Style="{StaticResource StatTitle}"/>
+
+                    </StackPanel>
+
+                    <Border Width="52"
+                            Height="52"
+                            Background="#4338CA"
+                            CornerRadius="14"
+                            HorizontalAlignment="Right">
+
+                        <TextBlock Text="💰"
+                                   FontSize="24"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+
+                    </Border>
+
+                </Grid>
+
+            </Border>
+
+            <!-- ================= LƯỢT ĐẶT PHÒNG ================= -->
+
+            <Border Grid.Column="1"
+                    Style="{StaticResource StatCard}">
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel>
+
+                        <TextBlock Text="{Binding LuotDatPhong}"
+                                   Style="{StaticResource StatNumber}"
+                                   Foreground="#4ADE80"/>
+
+                        <TextBlock Text="Lượt đặt phòng"
+                                   Style="{StaticResource StatTitle}"/>
+
+                    </StackPanel>
+
+                    <Border Width="52"
+                            Height="52"
+                            Background="#166534"
+                            CornerRadius="14"
+                            HorizontalAlignment="Right">
+
+                        <TextBlock Text="🎤"
+                                   FontSize="22"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+
+                    </Border>
+
+                </Grid>
+
+            </Border>
+
+            <!-- ================= DỊCH VỤ BÁN CHẠY ================= -->
+
+            <Border Grid.Column="2"
+                    Style="{StaticResource StatCard}">
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel>
+
+                        <TextBlock Text="{Binding DichVuBanChay}"
+                                   Style="{StaticResource StatNumber}"
+                                   FontSize="24"
+                                   Foreground="#FBBF24"/>
+
+                        <TextBlock Text="Dịch vụ bán chạy nhất"
+                                   Style="{StaticResource StatTitle}"/>
+
+                    </StackPanel>
+
+                    <Border Width="52"
+                            Height="52"
+                            Background="#92400E"
+                            CornerRadius="14"
+                            HorizontalAlignment="Right">
+
+                        <TextBlock Text="🍟"
+                                   FontSize="22"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+
+                    </Border>
+
+                </Grid>
+
+            </Border>
+
+            <!-- ================= PHÒNG TRỐNG ================= -->
+
+            <Border Grid.Column="3"
+                    Style="{StaticResource StatCard}"
+                    Margin="0">
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel>
+
+                        <TextBlock Text="{Binding PhongTrong}"
+                                   Style="{StaticResource StatNumber}"
+                                   Foreground="#60A5FA"/>
+
+                        <TextBlock Text="Phòng đang trống"
+                                   Style="{StaticResource StatTitle}"/>
+
+                    </StackPanel>
+
+                    <Border Width="52"
+                            Height="52"
+                            Background="#1D4ED8"
+                            CornerRadius="14"
+                            HorizontalAlignment="Right">
+
+                        <TextBlock Text="🛏"
+                                   FontSize="22"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+
+                    </Border>
+
+                </Grid>
+
+            </Border>
+
+        </Grid>
+
+        <!-- ===================================================== -->
+        <!-- CHARTS -->
+        <!-- ===================================================== -->
+
+        <Grid Grid.Row="4">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1.1*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <!-- ================================================= -->
+            <!-- DOANH THU CHART -->
+            <!-- ================================================= -->
+
+            <Border Grid.Column="0"
+                    Style="{StaticResource ChartCard}">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+
+                    <!-- Header -->
+
+                    <Grid Grid.Row="0">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel>
+
+                            <TextBlock Text="📈 Thống kê doanh thu"
+                                       Foreground="White"
+                                       FontSize="22"
+                                       FontWeight="Bold"/>
+
+                            <TextBlock Text="Doanh thu từ ngày được chọn đến 1 tháng sau"
+                                       Foreground="#9F9ABF"
+                                       Margin="0,4,0,0"/>
+
+                        </StackPanel>
+
+                        <DatePicker Grid.Column="1"
+                                    Width="180"
+                                    Height="36"
+                                    Foreground="Black"
+                                    SelectedDate="{Binding NgayThongKe}"/>
+
+                    </Grid>
+
+                    <!-- Chart -->
+
+                    <Border Grid.Row="2"
+                            Background="#211F32"
+                            CornerRadius="14"
+                            Padding="10">
+
+                        <lvc:CartesianChart Series="{Binding SeriesCollection}"
+                                            LegendLocation="Right"
+                                            Background="Transparent"
+                                            Foreground="White">
+
+                            <!-- ================= TRỤC X ================= -->
+
+                            <lvc:CartesianChart.AxisX>
+
+                                <lvc:Axis Title="Ngày"
+                                          Labels="{Binding Labels}"
+                                          Foreground="White"
+                                          FontSize="13">
+
+                                    <lvc:Axis.Separator>
+
+                                        <lvc:Separator Step="1"
+                                                       StrokeThickness="0"/>
+
+                                    </lvc:Axis.Separator>
+
+                                </lvc:Axis>
+
+                            </lvc:CartesianChart.AxisX>
+
+                            <!-- ================= TRỤC Y ================= -->
+
+                            <lvc:CartesianChart.AxisY>
+
+                                <lvc:Axis Title="Doanh thu"
+                                          LabelFormatter="{Binding Formatter}"
+                                          Foreground="White"
+                                          FontSize="13">
+
+                                    <lvc:Axis.Separator>
+
+                                        <lvc:Separator Stroke="#3A3652"
+                               StrokeThickness="1"/>
+
+                                    </lvc:Axis.Separator>
+
+                                </lvc:Axis>
+
+                            </lvc:CartesianChart.AxisY>
+
+                        </lvc:CartesianChart>
+                    </Border>
+
+                </Grid>
+
+            </Border>
+
+            <!-- ================================================= -->
+            <!-- PIE CHART -->
+            <!-- ================================================= -->
+
+            <Border Grid.Column="1"
+                    Style="{StaticResource ChartCard}"
+                    Margin="0">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+
+                    <!-- Header -->
+
+                    <StackPanel Grid.Row="0">
+
+                        <TextBlock Text="👑 Hạng khách hàng"
+                                   Foreground="White"
+                                   FontSize="22"
+                                   FontWeight="Bold"/>
+
+                        <TextBlock Text="Thống kê số lượng khách theo từng hạng"
+                                   Foreground="#9F9ABF"
+                                   Margin="0,4,0,0"/>
+
+                    </StackPanel>
+
+                    <!-- Pie Chart -->
+
+                    <Border Grid.Row="2"
+                            Background="#211F32"
+                            CornerRadius="14"
+                            Padding="10">
+
+                        <lvc:PieChart Series="{Binding PieSeriesCollection}" LegendLocation="Right"
+                                        HoverPushOut="15"
+                                        InnerRadius="40">
+
+                        </lvc:PieChart>
+
+                    </Border>
+
+                </Grid>
+
+            </Border>
+
+        </Grid>
+
+    </Grid>
+
+</UserControl>

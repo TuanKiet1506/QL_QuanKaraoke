@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="469295b47e9c42569a5010b66d9a01b0" Name="Diagram1">
+        <EntityTypeShape EntityType="QL_QuanKaraokeModel.BangGia" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_QuanKaraokeModel.ChiTietHoaDon" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_QuanKaraokeModel.DichVu" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_QuanKaraokeModel.HangThanhVien" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_QuanKaraokeModel.HoaDon" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_QuanKaraokeModel.KhachHang" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_QuanKaraokeModel.LichSuChuyenPhong" Width="1.5" PointX="7.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_QuanKaraokeModel.LoaiPhong" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_QuanKaraokeModel.LoginLog" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_QuanKaraokeModel.NhanVien" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_QuanKaraokeModel.Phong" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_QuanKaraokeModel.Role" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_QuanKaraokeModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_QuanKaraokeModel.SystemLog" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
+        <AssociationConnector Association="QL_QuanKaraokeModel.FK__BangGia__MaLoaiP__282DF8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_QuanKaraokeModel.FK__ChiTietHo__MaDic__51300E55" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_QuanKaraokeModel.FK__ChiTietHo__MaHoa__503BEA1C" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_QuanKaraokeModel.FK_KhachHang_HangThanhVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_QuanKaraokeModel.FK__HoaDon__MaKhachH__4C6B5938" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_QuanKaraokeModel.FK__HoaDon__MaNhanVi__4D5F7D71" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_QuanKaraokeModel.FK__HoaDon__MaPhong__4B7734FF" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_QuanKaraokeModel.FK__LichSuChu__MaHoa__55009F39" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_QuanKaraokeModel.FK__Phong__MaLoaiPho__25518C17" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_QuanKaraokeModel.FK__LoginLogs__MaNha__1CBC4616" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_QuanKaraokeModel.FK__NhanVien__MaRole__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_QuanKaraokeModel.FK__SystemLog__MaNha__208CD6FA" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
