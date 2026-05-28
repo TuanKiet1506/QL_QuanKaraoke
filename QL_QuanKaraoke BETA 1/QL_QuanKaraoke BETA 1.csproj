@@ -86,7 +86,7 @@
     <Compile Include="View\AddPhong.xaml.cs">
       <DependentUpon>AddPhong.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChuyenPhong.xaml.cs">
+    <Compile Include="View\ChuyenPhong.xaml.cs">
       <DependentUpon>ChuyenPhong.xaml</DependentUpon>
     </Compile>
     <Compile Include="ClassTheme\PasswordHelper.cs" />
@@ -99,7 +99,7 @@
     <Compile Include="DoiMatKhauWindow.xaml.cs">
       <DependentUpon>DoiMatKhauWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GoiMon.xaml.cs">
+    <Compile Include="View\GoiMon.xaml.cs">
       <DependentUpon>GoiMon.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginWindow.xaml.cs">
@@ -222,7 +222,7 @@
     <Compile Include="View\SuaPhong.xaml.cs">
       <DependentUpon>SuaPhong.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ThanhToanWindow.xaml.cs">
+    <Compile Include="View\ThanhToanWindow.xaml.cs">
       <DependentUpon>ThanhToanWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TrangChuUC.xaml.cs">
@@ -282,7 +282,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ChuyenPhong.xaml">
+    <Page Include="View\ChuyenPhong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -294,7 +294,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GoiMon.xaml">
+    <Page Include="View\GoiMon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -394,7 +394,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ThanhToanWindow.xaml">
+    <Page Include="View\ThanhToanWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
