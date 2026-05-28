@@ -33,15 +33,15 @@
             </DataTemplate>
             
             <DataTemplate DataType="{x:Type viewmodel:QL_KhachHangViewModel}">
-                <local:QL_KhachHangUC/>
+                <view:QL_KhachHangUC/>
             </DataTemplate>
             
             <DataTemplate DataType="{x:Type viewmodel:QL_HoaDonViewModel}">
-                <local:QL_HoaDonUC/>
+                <view:QL_HoaDonUC/>
             </DataTemplate>
             
             <DataTemplate DataType="{x:Type viewmodel:QL_PhongViewModel}">
-                <local:QL_PhongUC/>
+                <view:QL_PhongUC/>
             </DataTemplate>
             
             <DataTemplate DataType="{x:Type viewmodel:QL_BangGiaViewModel}">
@@ -53,11 +53,11 @@
             </DataTemplate>
             
             <DataTemplate DataType="{x:Type viewmodel:QL_DichVuViewModel}">
-                <local:QL_DichVuUC/>
+                <view:QL_DichVuUC/>
             </DataTemplate>
             
             <DataTemplate DataType="{x:Type viewmodel:QL_HeThongViewModel}">
-                <local:QL_HeThongUC/>
+                <view:QL_HeThongUC/>
             </DataTemplate>
             
             <DataTemplate DataType="{x:Type viewmodel:QL_DangNhapViewModel}">

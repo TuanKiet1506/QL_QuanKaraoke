@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace QL_QuanKaraoke_BETA_1
+namespace QL_QuanKaraoke_BETA_1.View
 {
     /// <summary>
-    /// Interaction logic for QL_HoaDonUC.xaml
+    /// Interaction logic for QL_PhongUC.xaml
     /// </summary>
-    public partial class QL_HoaDonUC : UserControl
+    public partial class QL_PhongUC : UserControl
     {
-        public QL_HoaDonUC()
+        public QL_PhongUC()
         {
             InitializeComponent();
         }

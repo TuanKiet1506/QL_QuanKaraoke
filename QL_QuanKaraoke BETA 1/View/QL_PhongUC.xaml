@@ -1,12 +1,11 @@
-﻿<UserControl x:Class="QL_QuanKaraoke_BETA_1.QL_KhachHangUC"
+﻿<UserControl x:Class="QL_QuanKaraoke_BETA_1.View.QL_PhongUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QL_QuanKaraoke_BETA_1"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             DataContext="{StaticResource QLKhachHangVM}">
+             d:DesignHeight="550" d:DesignWidth="980" DataContext="{StaticResource QLPhongVM}">
     <UserControl.Resources>
 
         <!-- ══════════════════════════════════════
@@ -118,7 +117,7 @@
         <!-- ══════════ ROW 0 — Tiêu đề ══════════ -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
             <TextBlock Text="👤" FontSize="22" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <TextBlock Text="Quản Lý Khách Hàng"
+            <TextBlock Text="Quản Lý Phòng"
                        Foreground="White"
                        FontSize="22"
                        FontWeight="Bold"
@@ -140,11 +139,14 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="200"/>
                     <ColumnDefinition Width="32"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="32"/>
                 </Grid.ColumnDefinitions>
 
                 <!-- Họ tên -->
                 <TextBlock Grid.Column="0"
-                           Text="Họ &amp; Tên"
+                           Text="Tên phòng"
                            Foreground="#9490B0"
                            FontSize="12"
                            FontWeight="SemiBold"
@@ -166,14 +168,14 @@
                              Padding="4,0,10,0"
                              Style="{StaticResource TextBoxTheme}"
                              IsReadOnly="True"
-                             Text="{Binding SelectedKhachHang.HoTen}"
+                             Text="{Binding TenPhong}"
                      />
                     </Grid>
                 </Border>
 
                 <!-- Số điện thoại -->
                 <TextBlock Grid.Column="3"
-                           Text="Số Điện Thoại"
+                           Text="Loại phòng"
                            Foreground="#9490B0"
                            FontSize="12"
                            FontWeight="SemiBold"
@@ -195,7 +197,34 @@
                                 Padding="4,0,10,0"
                                 Style="{StaticResource TextBoxTheme}"
                                 IsReadOnly="True"
-                                Text="{Binding SelectedKhachHang.SoDienThoai}"
+                                Text="{Binding LoaiPhong}"
+                                   />
+                    </Grid>
+                </Border>
+                <TextBlock Grid.Column="6"
+                           Text="Sức chứa"
+                           Foreground="#9490B0"
+                           FontSize="12"
+                           FontWeight="SemiBold"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,0"/>
+                <Border Background="#353340"
+                           CornerRadius="8"
+                           Height="25"
+                           Margin="0,0,0,0" 
+                           Grid.Column="7"
+                                           >
+                    <Grid>
+                        <TextBox
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Foreground="#E6E6E6"
+                                FontSize="14"
+                                VerticalContentAlignment="Center"
+                                Padding="4,0,10,0"
+                                Style="{StaticResource TextBoxTheme}"
+                                IsReadOnly="True"
+                                Text="{Binding SucChua}"
                                    />
                     </Grid>
                 </Border>
@@ -215,9 +244,9 @@
             <ComboBox Grid.Column="0"
           Height="38"
           Style="{StaticResource ModernComboBox}"
-          ItemsSource="{Binding DSHangTV, UpdateSourceTrigger=PropertyChanged}"
-          SelectedItem="{Binding HangDangChon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-          DisplayMemberPath="TenHang"
+          ItemsSource="{Binding DSLoaiPhong, UpdateSourceTrigger=PropertyChanged}"
+          SelectedItem="{Binding LoaiPhongDangChon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+          DisplayMemberPath="TenLoai"
           />
 
             <!-- TextBox tìm kiếm -->
@@ -262,17 +291,17 @@
                 BorderBrush="#2E2B4A">
             <ListView Style="{StaticResource NvListView}"
                       ItemContainerStyle="{StaticResource NvRowStyle}"
-                      ItemsSource="{Binding DanhSachKhachHang}"
-                      SelectedItem="{Binding SelectedKhachHang}">
+                      ItemsSource="{Binding DanhSachPhongView}"
+                      SelectedItem="{Binding SelectedPhong}">
 
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
 
                         <!-- Mã NV -->
-                        <GridViewColumn Header="Mã NV" Width="70">
+                        <GridViewColumn Header="Mã Phòng" Width="80">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding MaKhachHang}"
+                                    <TextBlock Text="{Binding MaPhong}"
                                                Foreground="#9490B0"
                                                FontSize="12"
                                                Padding="14,10"/>
@@ -281,10 +310,10 @@
                         </GridViewColumn>
 
                         <!-- Tên đăng nhập -->
-                        <GridViewColumn Header="Họ Tên" Width="180">
+                        <GridViewColumn Header="Tên phòng" Width="100">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding HoTen}"
+                                    <TextBlock Text="{Binding TenPhong}"
                                                Foreground="#7C5CFC"
                                                FontSize="12"
                                                FontWeight="SemiBold"
@@ -294,10 +323,10 @@
                         </GridViewColumn>
 
                         <!-- Họ tên -->
-                        <GridViewColumn Header="Số điện thoại" Width="160">
+                        <GridViewColumn Header="Loại phòng" Width="110">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding SoDienThoai}"
+                                    <TextBlock Text="{Binding LoaiPhong.TenLoai}"
                                                Foreground="#F0EEF8"
                                                FontSize="12"
                                                FontWeight="SemiBold"
@@ -306,10 +335,10 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="Hạng thành viên" Width="160">
+                        <GridViewColumn Header="Sức chứa" Width="110">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding HangThanhVien.TenHang}"
+                                    <TextBlock Text="{Binding SucChua}"
                        Foreground="#F0EEF8"
                        FontSize="12"
                        FontWeight="SemiBold"
@@ -317,6 +346,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
+
 
                     </GridView>
                 </ListView.View>
@@ -331,12 +361,13 @@
                 <ColumnDefinition Width="8"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="8"/>
-
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="8"/>
             </Grid.ColumnDefinitions>
 
             <!-- Thêm -->
             <Button Grid.Column="0"
-                    Content="➕  Thêm"
+                    Content="➕  Thêm Phòng Mới"
                     Height="40"
                     Command="{Binding ThemCommand}">
 
@@ -350,7 +381,7 @@
 
             <!-- Sửa -->
             <Button Grid.Column="2"
-                    Content="✏  Sửa"
+                    Content="✏  Sửa Phòng"
                     Height="40"
                     Command="{Binding SuaCommand}"
                     >
@@ -363,8 +394,28 @@
 
             </Button>
 
+            <!-- Khóa tài khoản -->
+            <Button Grid.Column="4"
+                    Height="40"
+                    Command="{Binding NgungHoatDongPhongCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="❌  " VerticalAlignment="Center"/>
+                    <TextBlock Text="Ngưng hoạt động phòng" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#DC2626" Offset="0"/>
+                        <GradientStop Color="#F87171" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+
+            </Button>
+
+
 
         </Grid>
 
     </Grid>
+
 </UserControl>

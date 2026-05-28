@@ -177,25 +177,25 @@
     <Compile Include="QL_DangNhap.xaml.cs">
       <DependentUpon>QL_DangNhap.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QL_DichVuUC.xaml.cs">
+    <Compile Include="View\QL_DichVuUC.xaml.cs">
       <DependentUpon>QL_DichVuUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="QL_HangThanhVienUC.xaml.cs">
       <DependentUpon>QL_HangThanhVienUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QL_HeThongUC.xaml.cs">
+    <Compile Include="View\QL_HeThongUC.xaml.cs">
       <DependentUpon>QL_HeThongUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QL_HoaDonUC.xaml.cs">
+    <Compile Include="View\QL_HoaDonUC.xaml.cs">
       <DependentUpon>QL_HoaDonUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QL_KhachHangUC.xaml.cs">
+    <Compile Include="View\QL_KhachHangUC.xaml.cs">
       <DependentUpon>QL_KhachHangUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\QL_NHANVIENUC.xaml.cs">
       <DependentUpon>QL_NHANVIENUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QL_PhongUC.xaml.cs">
+    <Compile Include="View\QL_PhongUC.xaml.cs">
       <DependentUpon>QL_PhongUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="QuenMatKhauWindow.xaml.cs">
@@ -334,7 +334,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QL_DichVuUC.xaml">
+    <Page Include="View\QL_DichVuUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -342,15 +342,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QL_HeThongUC.xaml">
+    <Page Include="View\QL_HeThongUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QL_HoaDonUC.xaml">
+    <Page Include="View\QL_HoaDonUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QL_KhachHangUC.xaml">
+    <Page Include="View\QL_KhachHangUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -358,7 +358,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QL_PhongUC.xaml">
+    <Page Include="View\QL_PhongUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
