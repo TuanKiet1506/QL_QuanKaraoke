@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace QL_QuanKaraoke_BETA_1
+namespace QL_QuanKaraoke_BETA_1.View
 {
     /// <summary>
-    /// Interaction logic for SuaHangThanhVien.xaml
+    /// Interaction logic for SuaGio.xaml
     /// </summary>
-    public partial class SuaHangThanhVien : Window
+    public partial class SuaGio : Window
     {
-        public SuaHangThanhVien()
+        public SuaGio()
         {
             InitializeComponent();
         }

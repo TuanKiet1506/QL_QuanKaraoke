@@ -204,13 +204,13 @@
     <Compile Include="View\SuaDichVu.xaml.cs">
       <DependentUpon>SuaDichVu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SuaGia.xaml.cs">
+    <Compile Include="View\SuaGia.xaml.cs">
       <DependentUpon>SuaGia.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SuaGio.xaml.cs">
+    <Compile Include="View\SuaGio.xaml.cs">
       <DependentUpon>SuaGio.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SuaHangThanhVien.xaml.cs">
+    <Compile Include="View\SuaHangThanhVien.xaml.cs">
       <DependentUpon>SuaHangThanhVien.xaml</DependentUpon>
     </Compile>
     <Compile Include="SuaKhachHang.xaml.cs">
@@ -370,15 +370,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SuaGia.xaml">
+    <Page Include="View\SuaGia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SuaGio.xaml">
+    <Page Include="View\SuaGio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SuaHangThanhVien.xaml">
+    <Page Include="View\SuaHangThanhVien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
