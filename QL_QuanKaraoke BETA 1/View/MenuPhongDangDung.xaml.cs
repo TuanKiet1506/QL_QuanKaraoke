@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace QL_QuanKaraoke_BETA_1
+namespace QL_QuanKaraoke_BETA_1.View
 {
     /// <summary>
-    /// Interaction logic for MenuPhongTrong.xaml
+    /// Interaction logic for MenuPhongDangDung.xaml
     /// </summary>
-    public partial class MenuPhongTrong : Window
+    public partial class MenuPhongDangDung : Window
     {
-        public MenuPhongTrong()
+        public MenuPhongDangDung()
         {
             InitializeComponent();
         }

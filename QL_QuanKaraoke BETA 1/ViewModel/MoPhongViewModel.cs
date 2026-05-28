@@ -240,7 +240,8 @@ namespace QL_QuanKaraoke_BETA_1.ViewModel
                     {
                         HoTen = HoTen,
                         SoDienThoai = SoDienThoai,
-                        MaHang = 3 // gán cứng mã hạng là 3 do khách là khách mới, hạn chế việc nhân viên tự ý thay đổi
+                        MaHang = 3,
+                        IsDeleted = false// gán cứng mã hạng là 3 do khách là khách mới, hạn chế việc nhân viên tự ý thay đổi
                     }; 
                     DataProvider.Ins.DB.KhachHangs.Add(kh);
                     DataProvider.Ins.DB.SaveChanges();

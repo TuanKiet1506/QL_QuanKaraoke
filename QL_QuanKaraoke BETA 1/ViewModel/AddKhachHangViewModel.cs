@@ -89,6 +89,7 @@ namespace QL_QuanKaraoke_BETA_1.ViewModel
                             HoTen = HoTen.Trim(),
                             SoDienThoai = SoDienThoai.Trim(),
                             MaHang = HangDangChon.MaHang,
+                            IsDeleted = false
                         };
 
                         DataProvider.Ins.DB.KhachHangs.Add(khachHangMoi);

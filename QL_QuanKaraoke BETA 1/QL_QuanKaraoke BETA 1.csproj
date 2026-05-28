@@ -93,7 +93,7 @@
     <Compile Include="Converters\BooleanToTrangThaiConverter.cs" />
     <Compile Include="Converters\TrangThaiConverter.cs" />
     <Compile Include="Data\DataProvider.cs" />
-    <Compile Include="DatPhongUC.xaml.cs">
+    <Compile Include="View\DatPhongUC.xaml.cs">
       <DependentUpon>DatPhongUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="DoiMatKhauWindow.xaml.cs">
@@ -105,10 +105,10 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuPhongDangDung.xaml.cs">
+    <Compile Include="View\MenuPhongDangDung.xaml.cs">
       <DependentUpon>MenuPhongDangDung.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuPhongTrong.xaml.cs">
+    <Compile Include="View\MenuPhongTrong.xaml.cs">
       <DependentUpon>MenuPhongTrong.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\BangGia.cs">
@@ -286,7 +286,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DatPhongUC.xaml">
+    <Page Include="View\DatPhongUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -314,11 +314,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MenuPhongDangDung.xaml">
+    <Page Include="View\MenuPhongDangDung.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MenuPhongTrong.xaml">
+    <Page Include="View\MenuPhongTrong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

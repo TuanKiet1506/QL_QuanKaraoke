@@ -189,27 +189,32 @@ namespace QL_QuanKaraoke_BETA_1.ViewModel
 
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
-                    var hd = DataProvider.Ins.DB.Phongs
+                    DatPhongUC dp = new DatPhongUC(); 
+
+                    var dpVM = dp.DataContext as DatPhongViewModel;
+
+                        var hd = DataProvider.Ins.DB.Phongs
                     .Where(h => h.MaPhong == SelectedPhong.MaPhong)
-                    .FirstOrDefault();
+                    .FirstOrDefault(); 
 
-                    hd.IsEnable = false;
-                    DataProvider.Ins.DB.SaveChanges();
+                        hd.IsEnable = false;
+                        DataProvider.Ins.DB.SaveChanges(); 
 
 
-                    SystemLog systemLog = new SystemLog
-                    {
-                        MaNhanVien = qlVM.UserId,
-                        ThoiGian = DateTime.Now,
-                        HanhDong = "XOA_PHONG",
-                        MoTa = $"Nhân viên mã {qlVM.UserId} đã xóa phòng vào lúc {DateTime.Now}"
-                    };
-                    DataProvider.Ins.DB.SystemLogs.Add(systemLog);
-                    DataProvider.Ins.DB.SaveChanges();
+                        SystemLog systemLog = new SystemLog
+                        {
+                            MaNhanVien = qlVM.UserId,
+                            ThoiGian = DateTime.Now,
+                            HanhDong = "XOA_PHONG",
+                            MoTa = $"Nhân viên mã {qlVM.UserId} đã xóa phòng vào lúc {DateTime.Now}"
+                        }; 
+                        DataProvider.Ins.DB.SystemLogs.Add(systemLog); 
+                        DataProvider.Ins.DB.SaveChanges(); 
 
-                    DanhSachPhong.Remove(hd);
-                    LoadPhong();
-                    DanhSachPhongView.Refresh();
+                        DanhSachPhong.Remove(hd); 
+                        LoadPhong(); 
+                        dpVM.LoadPhong();
+                        DanhSachPhongView.Refresh(); 
                 }
             });
         }
