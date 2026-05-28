@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace QL_QuanKaraoke_BETA_1
+namespace QL_QuanKaraoke_BETA_1.View
 {
     /// <summary>
-    /// Interaction logic for DoiMatKhauWindow.xaml
+    /// Interaction logic for MoPhong.xaml
     /// </summary>
-    public partial class DoiMatKhauWindow : Window
+    public partial class MoPhong : Window
     {
-        public DoiMatKhauWindow()
+        public MoPhong()
         {
             InitializeComponent();
         }

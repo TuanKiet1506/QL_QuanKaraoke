@@ -4,7 +4,7 @@
              xmlns:viewmodel="clr-namespace:QL_QuanKaraoke_BETA_1.ViewModel"
              xmlns:local="clr-namespace:QL_QuanKaraoke_BETA_1"
              xmlns:view="clr-namespace:QL_QuanKaraoke_BETA_1.View"
-             StartupUri="MainWindow.xaml"
+             StartupUri="View\MainWindow.xaml"
              >
     <Application.Resources>
         <ResourceDictionary>

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace QL_QuanKaraoke_BETA_1
+namespace QL_QuanKaraoke_BETA_1.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

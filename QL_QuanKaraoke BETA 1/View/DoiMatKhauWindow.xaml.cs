@@ -12,22 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace QL_QuanKaraoke_BETA_1
+namespace QL_QuanKaraoke_BETA_1.View
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for DoiMatKhauWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class DoiMatKhauWindow : Window
     {
-        public LoginWindow()
+        public DoiMatKhauWindow()
         {
             InitializeComponent();
-        }
-
-        private void LoginWD_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ButtonState == MouseButtonState.Pressed)
-                this.DragMove();
         }
     }
 }
