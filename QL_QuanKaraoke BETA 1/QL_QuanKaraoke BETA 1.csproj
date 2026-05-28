@@ -77,13 +77,13 @@
     <Compile Include="View\AddHangTV.xaml.cs">
       <DependentUpon>AddHangTV.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddKhachHang.xaml.cs">
+    <Compile Include="View\AddKhachHang.xaml.cs">
       <DependentUpon>AddKhachHang.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddNhanVien.xaml.cs">
+    <Compile Include="View\AddNhanVien.xaml.cs">
       <DependentUpon>AddNhanVien.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddPhong.xaml.cs">
+    <Compile Include="View\AddPhong.xaml.cs">
       <DependentUpon>AddPhong.xaml</DependentUpon>
     </Compile>
     <Compile Include="ChuyenPhong.xaml.cs">
@@ -270,15 +270,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddKhachHang.xaml">
+    <Page Include="View\AddKhachHang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddNhanVien.xaml">
+    <Page Include="View\AddNhanVien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddPhong.xaml">
+    <Page Include="View\AddPhong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
