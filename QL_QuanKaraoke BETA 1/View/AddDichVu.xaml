@@ -6,75 +6,59 @@
         xmlns:local="clr-namespace:QL_QuanKaraoke_BETA_1"
         mc:Ignorable="d"
         Title="AddDichVu"
-         Height="780" Width="600"
+        Height="780" Width="600"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         WindowStyle="None"
         ResizeMode="NoResize"
-        AllowsTransparency="True" DataContext="{StaticResource AddDichVuVM}"
+        AllowsTransparency="True"
+        DataContext="{StaticResource AddDichVuVM}"
         Name="AddDVWD">
-    <Border CornerRadius="20" Background="#1A1A2E">
 
-        <Border.Effect>
-            <DropShadowEffect Color="#000000" BlurRadius="30" ShadowDepth="0" Opacity="0.6"/>
-        </Border.Effect>
+    <!-- Outer border: white card with subtle shadow effect -->
+    <Border CornerRadius="12"
+            Background="White"
+            BorderBrush="#E0E0E0"
+            BorderThickness="1">
 
         <Grid>
 
-            <Border Height="3"
-                    VerticalAlignment="Top"
-                    CornerRadius="20,20,0,0">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="#F07070" Offset="0"/>
-                        <GradientStop Color="#F9A8A8" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
+            <StackPanel Margin="0,4,0,0">
 
-            <StackPanel>
-
-                <!-- HEADER: Tiêu đề + nút đóng -->
-                <Grid Margin="24,20,24,0">
+                <!-- HEADER -->
+                <Grid Margin="24,18,24,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <!-- Icon + Tiêu đề -->
+                    <!-- Icon + Title -->
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <Border Width="36" Height="36"
-                                CornerRadius="10"
+                        <Border Width="34" Height="34"
+                                Background="#E05555"
                                 Margin="0,0,12,0">
-                            <Border.Background>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                    <GradientStop Color="#F07070" Offset="0"/>
-                                    <GradientStop Color="#F9A8A8" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Border.Background>
-                            <TextBlock Text="🍽️" 
+                            <TextBlock Text="🍽️"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
-                                       Foreground="Black"
-                                       FontSize="20"/>
+                                       FontSize="18"/>
                         </Border>
 
                         <StackPanel VerticalAlignment="Center">
                             <TextBlock Text="THÊM DỊCH VỤ MỚI"
-                                       Foreground="#F07070"
-                                       FontSize="16"
+                                       Foreground="#C0392B"
+                                       FontSize="15"
                                        FontWeight="Bold"
                                        FontFamily="Segoe UI"/>
                             <TextBlock Text="Xác nhận thông tin dịch vụ"
-                                       Foreground="#888899"
+                                       Foreground="#999999"
                                        FontSize="11"
                                        FontFamily="Segoe UI"/>
                         </StackPanel>
                     </StackPanel>
 
-                    <!-- Nút đóng -->
+                    <!-- Close button -->
                     <Button Grid.Column="1"
-                            Style="{StaticResource CloseButtonStyle}" 
+                            Style="{StaticResource CloseButtonStyle}"
                             Command="{Binding ExitCommand}"
                             CommandParameter="{Binding ElementName=AddDVWD}"
                             VerticalAlignment="Top"/>
@@ -82,336 +66,279 @@
 
                 <!-- DIVIDER -->
                 <Border Height="1"
-                        Background="#2A2A40"
-                        Margin="24,16,24,0"/>
+                        Background="#EBEBEB"
+                        Margin="24,14,24,0"/>
 
-                <!-- NỘI DUNG FORM -->
-                <StackPanel Margin="32,28,32,0">
+                <!-- FORM BODY -->
+                <StackPanel Margin="32,22,32,0">
 
-                    <!-- Mô tả -->
-                    <Border Background="#22223A"
-                            CornerRadius="8"
-                            Padding="14,10"
-                            Margin="0,0,0,24">
+                    <!-- Info notice -->
+                    <Border Background="#FFF3F3"
+                            Padding="12,9"
+                            Margin="0,0,0,22"
+                            BorderBrush="#F5BBBB"
+                            BorderThickness="1">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="ℹ"
-                                       Foreground="#F07070"
-                                       FontSize="14"
+                                       Foreground="#C0392B"
+                                       FontSize="13"
                                        VerticalAlignment="Top"
                                        Margin="0,0,8,0"/>
                             <TextBlock Text="Vui lòng nhập đúng thông tin để xác nhận thông tin dịch vụ."
-                                       Foreground="#AAAACC"
+                                       Foreground="#C0392B"
                                        FontSize="12"
                                        FontFamily="Segoe UI"
                                        TextWrapping="Wrap"/>
                         </StackPanel>
                     </Border>
 
-                    <!-- TÊN ĐĂNG NHẬP -->
+                    <!-- Tên dịch vụ -->
                     <TextBlock Text="Tên dịch vụ"
-                               Foreground="#CCCCDD"
+                               Foreground="#333333"
                                FontSize="12"
                                FontFamily="Segoe UI"
                                FontWeight="SemiBold"
-                               Margin="0,0,0,6"/>
-
-                    <Border Background="#353340"
-                            CornerRadius="8"
-                            Height="46"
-                            Margin="0,0,0,16">
+                               Margin="0,0,0,5"/>
+                    <Border Background="White"
+                            Height="42"
+                            Margin="0,0,0,14"
+                            BorderBrush="#CCCCCC"
+                            BorderThickness="1">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="44"/>
+                                <ColumnDefinition Width="40"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-
                             <TextBlock Text="🛎️"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
-                                       Foreground="GhostWhite"
-                                       FontSize="18"/>
-
+                                       FontSize="16"/>
                             <TextBox Grid.Column="1"
                                      Background="Transparent"
                                      BorderThickness="0"
-                                     Foreground="#E6E6E6"
-                                     FontSize="14"
+                                     Foreground="#222222"
+                                     FontSize="13"
+                                     FontFamily="Segoe UI"
                                      VerticalContentAlignment="Center"
-                                     Padding="4,0,10,0"
-                                     Style="{StaticResource TextBoxTheme}"
-                                     Tag="Tên dịch vụ"
+                                     Padding="4,0,8,0"
                                      Text="{Binding TenDichVu, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                     </Border>
 
-                    <!-- HỌ TÊN -->
+                    <!-- Đơn vị tính -->
                     <TextBlock Text="Đơn vị tính"
-                               Foreground="#CCCCDD"
+                               Foreground="#333333"
                                FontSize="12"
                                FontFamily="Segoe UI"
                                FontWeight="SemiBold"
-                               Margin="0,0,0,6"/>
-                    
-                    
-
-                    <Border Background="#353340"
-                            CornerRadius="8"
-                            Height="46"
-                            Margin="0,0,0,16">
+                               Margin="0,0,0,5"/>
+                    <Border Background="White"
+                            Height="42"
+                            Margin="0,0,0,14"
+                            BorderBrush="#CCCCCC"
+                            BorderThickness="1">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="44"/>
+                                <ColumnDefinition Width="40"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-
                             <TextBlock Text="⚖️"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Foreground="GhostWhite"
-            FontSize="18"/>
-
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       FontSize="16"/>
                             <TextBox Grid.Column="1"
                                      Background="Transparent"
                                      BorderThickness="0"
-                                     Foreground="#E6E6E6"
-                                     FontSize="14"
+                                     Foreground="#222222"
+                                     FontSize="13"
+                                     FontFamily="Segoe UI"
                                      VerticalContentAlignment="Center"
-                                     Padding="4,0,10,0"
-                                     Style="{StaticResource TextBoxTheme}"
-                                     Tag="Đơn vị tính"
+                                     Padding="4,0,8,0"
                                      Text="{Binding DonViTinh, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                     </Border>
 
-                    <!-- SỐ ĐIỆN THOẠI -->
+                    <!-- Đơn giá -->
                     <TextBlock Text="Đơn giá"
-                               Foreground="#CCCCDD"
+                               Foreground="#333333"
                                FontSize="12"
                                FontFamily="Segoe UI"
                                FontWeight="SemiBold"
-                               Margin="0,0,0,6"/>
-
-                    <Border Background="#353340"
-                            CornerRadius="8"
-                            Height="46"
-                            Margin="0,0,0,16">
+                               Margin="0,0,0,5"/>
+                    <Border Background="White"
+                            Height="42"
+                            Margin="0,0,0,14"
+                            BorderBrush="#CCCCCC"
+                            BorderThickness="1">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="44"/>
+                                <ColumnDefinition Width="40"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-
                             <TextBlock Text="💲"
-                                       Foreground="GhostWhite"
-                                       FontSize="15"
+                                       VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
-
+                                       FontSize="16"/>
                             <TextBox Grid.Column="1"
                                      Background="Transparent"
                                      BorderThickness="0"
-                                     Foreground="#E6E6E6"
-                                     FontSize="14"
+                                     Foreground="#222222"
+                                     FontSize="13"
+                                     FontFamily="Segoe UI"
                                      VerticalContentAlignment="Center"
-                                     Padding="4,0,10,0"
-                                     Style="{StaticResource TextBoxTheme}"
-                                     Tag="Đơn giá"
+                                     Padding="4,0,8,0"
                                      Text="{Binding DonGia, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                     </Border>
 
+                    <!-- Tồn kho -->
                     <TextBlock Text="Tồn kho"
-                               Foreground="#CCCCDD"
+                               Foreground="#333333"
                                FontSize="12"
                                FontFamily="Segoe UI"
                                FontWeight="SemiBold"
-                               Margin="0,0,0,6"/>
-
-                    <Border Background="#353340"
-                            CornerRadius="8"
-                            Height="46"
-                            Margin="0,0,0,28">
+                               Margin="0,0,0,5"/>
+                    <Border Background="White"
+                            Height="42"
+                            Margin="0,0,0,14"
+                            BorderBrush="#CCCCCC"
+                            BorderThickness="1">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="44"/>
+                                <ColumnDefinition Width="40"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-
                             <TextBlock Text="📦"
-                                       Foreground="GhostWhite"
-                                       FontSize="15"
+                                       VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
-
+                                       FontSize="16"/>
                             <TextBox Grid.Column="1"
                                      Background="Transparent"
                                      BorderThickness="0"
-                                     Foreground="#E6E6E6" 
-                                     FontSize="14"
+                                     Foreground="#222222"
+                                     FontSize="13"
+                                     FontFamily="Segoe UI"
                                      VerticalContentAlignment="Center"
-                                     Padding="4,0,10,0"
-                                     Style="{StaticResource TextBoxTheme}"
-                                     Tag="Tồn kho"
+                                     Padding="4,0,8,0"
                                      Text="{Binding TonKho}"/>
                         </Grid>
                     </Border>
 
+                    <!-- Cảnh báo tồn kho -->
                     <TextBlock Text="Cảnh báo tồn kho"
-           Foreground="#CCCCDD"
-           FontSize="12"
-           FontFamily="Segoe UI"
-           FontWeight="SemiBold"
-           Margin="0,0,0,6"/>
-
-                    <Border Background="#353340"
-        CornerRadius="8"
-        Height="46"
-        Margin="0,0,0,28">
+                               Foreground="#333333"
+                               FontSize="12"
+                               FontFamily="Segoe UI"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,5"/>
+                    <Border Background="White"
+                            Height="42"
+                            Margin="0,0,0,24"
+                            BorderBrush="#CCCCCC"
+                            BorderThickness="1">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="44"/>
+                                <ColumnDefinition Width="40"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-
                             <TextBlock Text="⚠️"
-                   Foreground="GhostWhite"
-                   FontSize="15"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
-
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       FontSize="16"/>
                             <TextBox Grid.Column="1"
-                 Background="Transparent"
-                 BorderThickness="0"
-                 Foreground="#E6E6E6" 
-                 FontSize="14"
-                 VerticalContentAlignment="Center"
-                 Padding="4,0,10,0"
-                 Style="{StaticResource TextBoxTheme}"
-                 Tag="Cảnh báo tồn kho"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     Foreground="#222222"
+                                     FontSize="13"
+                                     FontFamily="Segoe UI"
+                                     VerticalContentAlignment="Center"
+                                     Padding="4,0,8,0"
                                      Text="{Binding CanhBaoTonKho}"/>
                         </Grid>
                     </Border>
 
-                    <Button Height="46"
+                    <!-- Button: Thêm hình ảnh -->
+                    <Button Height="42"
                             Cursor="Hand"
-                            BorderThickness="0" 
+                            BorderThickness="0"
                             Command="{Binding ThemHinhAnhCommand}"
-                            CommandParameter="{Binding ElementName=AddDVWD}" >
-
+                            CommandParameter="{Binding ElementName=AddDVWD}">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
-
-                                <Border x:Name="ConfirmBorder"
-                                        CornerRadius="8"
-                                        Height="46">
-
-                                    <Border.Background>
-                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                            <GradientStop Color="#16A34A" Offset="0"/>
-                                            <GradientStop Color="#4ADE80" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Border.Background>
-
+                                <Border x:Name="BtnBorder"
+                                        CornerRadius="6"
+                                        Height="42"
+                                        Background="#27AE60">
                                     <StackPanel Orientation="Horizontal"
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center">
-
                                         <TextBlock Text="➕"
                                                    Foreground="White"
-                                                   FontSize="14"
+                                                   FontSize="13"
                                                    VerticalAlignment="Center"
-                                                   Margin="0,0,8,0"/>
-
+                                                   Margin="0,0,7,0"/>
                                         <TextBlock Text="THÊM HÌNH ẢNH"
                                                    Foreground="White"
-                                                   FontSize="14"
+                                                   FontSize="13"
                                                    FontWeight="Bold"
                                                    FontFamily="Segoe UI"
                                                    VerticalAlignment="Center"/>
                                     </StackPanel>
-
                                 </Border>
-
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="ConfirmBorder"
-                                                Property="Opacity"
-                                                Value="0.88"/>
+                                        <Setter TargetName="BtnBorder" Property="Opacity" Value="0.87"/>
                                     </Trigger>
                                     <Trigger Property="IsPressed" Value="True">
-                                        <Setter TargetName="ConfirmBorder"
-                                                Property="Opacity"
-                                                Value="0.72"/>
+                                        <Setter TargetName="BtnBorder" Property="Opacity" Value="0.72"/>
                                     </Trigger>
                                 </ControlTemplate.Triggers>
-
                             </ControlTemplate>
                         </Button.Template>
-
                     </Button>
 
-                    <!-- BUTTON XÁC NHẬN -->
-                    <Button Height="46"
+                    <!-- Button: Xác nhận -->
+                    <Button Height="42"
                             Cursor="Hand"
-                            BorderThickness="0" 
+                            BorderThickness="0"
                             Command="{Binding XacNhanCommand}"
                             CommandParameter="{Binding ElementName=AddDVWD}"
-                            Margin="0, 35, 0, 0">
-
+                            Margin="0,12,0,24">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
-
-                                <Border x:Name="ConfirmBorder"
-                                        CornerRadius="8"
-                                        Height="46">
-
-                                    <Border.Background>
-                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                            <GradientStop Color="#F07070" Offset="0"/>
-                                            <GradientStop Color="#F9A8A8" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Border.Background>
-
+                                <Border x:Name="BtnConfirmBorder"
+                                        CornerRadius="6"
+                                        Height="42"
+                                        Background="#E05555">
                                     <StackPanel Orientation="Horizontal"
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center">
-
                                         <TextBlock Text="✔"
                                                    Foreground="White"
-                                                   FontSize="14"
+                                                   FontSize="13"
                                                    VerticalAlignment="Center"
-                                                   Margin="0,0,8,0"/>
-
+                                                   Margin="0,0,7,0"/>
                                         <TextBlock Text="XÁC NHẬN"
                                                    Foreground="White"
-                                                   FontSize="14"
+                                                   FontSize="13"
                                                    FontWeight="Bold"
                                                    FontFamily="Segoe UI"
                                                    VerticalAlignment="Center"/>
                                     </StackPanel>
-
                                 </Border>
-
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="ConfirmBorder"
-                                                Property="Opacity"
-                                                Value="0.88"/>
+                                        <Setter TargetName="BtnConfirmBorder" Property="Opacity" Value="0.87"/>
                                     </Trigger>
                                     <Trigger Property="IsPressed" Value="True">
-                                        <Setter TargetName="ConfirmBorder"
-                                                Property="Opacity"
-                                                Value="0.72"/>
+                                        <Setter TargetName="BtnConfirmBorder" Property="Opacity" Value="0.72"/>
                                     </Trigger>
                                 </ControlTemplate.Triggers>
-
                             </ControlTemplate>
                         </Button.Template>
-
                     </Button>
 
                 </StackPanel>
-
             </StackPanel>
 
         </Grid>
