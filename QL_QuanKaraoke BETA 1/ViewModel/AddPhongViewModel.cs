@@ -125,7 +125,8 @@ namespace QL_QuanKaraoke_BETA_1.ViewModel
                     TenPhong = TenPhong.Trim(),
                     SucChua = int.Parse(SucChua),
                     MaLoaiPhong = SelectedLoaiPhong.MaLoaiPhong,
-                    TrangThai = "Trống" // Mặc định khi thêm mới
+                    TrangThai = "Trống", // Mặc định khi thêm mới
+                    IsEnable = true
                 };
 
                 DataProvider.Ins.DB.Phongs.Add(phongMoi);

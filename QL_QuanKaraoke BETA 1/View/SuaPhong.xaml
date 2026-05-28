@@ -1,19 +1,17 @@
-﻿<Window x:Class="QL_QuanKaraoke_BETA_1.SuaKhachHang"
+﻿<Window x:Class="QL_QuanKaraoke_BETA_1.View.SuaPhong"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QL_QuanKaraoke_BETA_1"
         mc:Ignorable="d"
-        Title="SuaKhachHang"
-        Height="520" Width="600"
+        Title="SuaPhong" Height="550" Width="600" DataContext="{StaticResource SuaPhongVM}"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         WindowStyle="None"
-        ResizeMode="NoResize" 
+        ResizeMode="NoResize"
         AllowsTransparency="True"
-        Name="SuaKhachHangWD"
-        DataContext="{StaticResource SuaKhachHangVM}">
+        Name="SuaPhongWD">
     <Border CornerRadius="20" Background="#1A1A2E">
 
         <Border.Effect>
@@ -53,19 +51,19 @@
                                     <GradientStop Color="#F9A8A8" Offset="1"/>
                                 </LinearGradientBrush>
                             </Border.Background>
-                            <Image Source="/image/person.png"
-                                   Width="16" Height="18"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
+                            <TextBlock Text="🏠" 
+                                       FontSize="20" 
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center"/>
                         </Border>
 
                         <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="SỬA THÔNG TIN KHÁCH HÀNG"
+                            <TextBlock Text="SỬA THÔNG TIN PHÒNG"
                                        Foreground="#F07070"
                                        FontSize="16"
                                        FontWeight="Bold"
                                        FontFamily="Segoe UI"/>
-                            <TextBlock Text="Xác nhận thông tin khách hàng"
+                            <TextBlock Text="Xác nhận thông tin của phòng"
                                        Foreground="#888899"
                                        FontSize="11"
                                        FontFamily="Segoe UI"/>
@@ -76,7 +74,7 @@
                     <Button Grid.Column="1"
                             Style="{StaticResource CloseButtonStyle}" 
                             Command="{Binding ExitCommand}"
-                            CommandParameter="{Binding ElementName=SuaKhachHangWD}"
+                            CommandParameter="{Binding ElementName=SuaPhongWD}"
                             VerticalAlignment="Top"/>
                 </Grid>
 
@@ -99,7 +97,7 @@
                                        FontSize="14"
                                        VerticalAlignment="Top"
                                        Margin="0,0,8,0"/>
-                            <TextBlock Text="Vui lòng nhập đúng thông tin để xác nhận danh tính khách hàng."
+                            <TextBlock Text="Vui lòng nhập đúng thông tin để xác nhận thông tin của phòng mới."
                                        Foreground="#AAAACC"
                                        FontSize="12"
                                        FontFamily="Segoe UI"
@@ -109,7 +107,7 @@
 
 
                     <!-- HỌ TÊN -->
-                    <TextBlock Text="Họ và tên"
+                    <TextBlock Text="Tên Phòng"
                                Foreground="#CCCCDD"
                                FontSize="12"
                                FontFamily="Segoe UI"
@@ -126,11 +124,11 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <Image Width="16" Height="16"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   Source="/image/person.png"
-                                   Opacity="0.7"/>
+                            <TextBlock Text="🏷️"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       FontSize="20"
+                                       Foreground="#888899"/>
 
                             <TextBox Grid.Column="1"
                                      Background="Transparent"
@@ -140,13 +138,13 @@
                                      VerticalContentAlignment="Center"
                                      Padding="4,0,10,0"
                                      Style="{StaticResource TextBoxTheme}"
-                                     Tag="Họ và tên"
-                                     Text="{Binding KhachHang.HoTen, UpdateSourceTrigger=PropertyChanged}"/>
+                                     Tag="Nhập tên phòng"
+                                     Text="{Binding TenPhong, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                     </Border>
 
                     <!-- SỐ ĐIỆN THOẠI -->
-                    <TextBlock Text="Số điện thoại"
+                    <TextBlock Text="Sức chứa"
                                Foreground="#CCCCDD"
                                FontSize="12"
                                FontFamily="Segoe UI"
@@ -163,7 +161,7 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock Text="☎"
+                            <TextBlock Text="👥"
                                        Foreground="#888899"
                                        FontSize="15"
                                        HorizontalAlignment="Center"
@@ -177,12 +175,12 @@
                                      VerticalContentAlignment="Center"
                                      Padding="4,0,10,0"
                                      Style="{StaticResource TextBoxTheme}"
-                                     Tag="Số điện thoại"
-                                     Text="{Binding KhachHang.SoDienThoai, UpdateSourceTrigger=PropertyChanged}"/>
+                                     Tag="Sức chứa"
+                                     Text="{Binding SucChua, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                     </Border>
 
-                    <TextBlock Text="Hạng thành viên"
+                    <TextBlock Text="Loại Phòng"
                                Foreground="#CCCCDD"
                                FontSize="12"
                                FontFamily="Segoe UI"
@@ -206,16 +204,16 @@
                                        VerticalAlignment="Center"/>
 
                             <ComboBox Grid.Column="1"
-         Background="Transparent"
-         BorderThickness="0"
-         Foreground="#E6E6E6" 
-         FontSize="14"
-         VerticalContentAlignment="Center"
-         Padding="4,0,10,0"
-         Style="{StaticResource ModernComboBox}"
-         ItemsSource="{Binding DSHangTV, UpdateSourceTrigger=PropertyChanged}"
-         SelectedItem="{Binding HangDangChon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-         DisplayMemberPath="TenHang"/>
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     Foreground="#E6E6E6" 
+                                     FontSize="14"
+                                     VerticalContentAlignment="Center"
+                                     Padding="4,0,10,0"
+                                     Style="{StaticResource ModernComboBox}"
+                                     ItemsSource="{Binding DSLoaiPhong, UpdateSourceTrigger=PropertyChanged}"
+                                     SelectedItem="{Binding SelectedLoaiPhong, UpdateSourceTrigger=PropertyChanged}"
+                                     DisplayMemberPath="TenLoai"/>
                         </Grid>
                     </Border>
 
@@ -224,7 +222,7 @@
                             Cursor="Hand"
                             BorderThickness="0" 
                             Command="{Binding XacNhanSuaCommand}"
-                            CommandParameter="{Binding ElementName=SuaKhachHangWD}" >
+                            CommandParameter="{Binding ElementName=SuaPhongWD}" >
 
                         <Button.Template>
                             <ControlTemplate TargetType="Button">

@@ -213,13 +213,13 @@
     <Compile Include="View\SuaHangThanhVien.xaml.cs">
       <DependentUpon>SuaHangThanhVien.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SuaKhachHang.xaml.cs">
+    <Compile Include="View\SuaKhachHang.xaml.cs">
       <DependentUpon>SuaKhachHang.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SuaNhanVien.xaml.cs">
+    <Compile Include="View\SuaNhanVien.xaml.cs">
       <DependentUpon>SuaNhanVien.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SuaPhong.xaml.cs">
+    <Compile Include="View\SuaPhong.xaml.cs">
       <DependentUpon>SuaPhong.xaml</DependentUpon>
     </Compile>
     <Compile Include="ThanhToanWindow.xaml.cs">
@@ -382,15 +382,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SuaKhachHang.xaml">
+    <Page Include="View\SuaKhachHang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SuaNhanVien.xaml">
+    <Page Include="View\SuaNhanVien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SuaPhong.xaml">
+    <Page Include="View\SuaPhong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

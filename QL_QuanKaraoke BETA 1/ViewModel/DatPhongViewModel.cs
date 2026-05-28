@@ -27,11 +27,18 @@ namespace QL_QuanKaraoke_BETA_1.ViewModel
                 RefreshStats();
             }
         }
-        public int TongPhong => DanhSachPhong?.Count ?? 0;
-        public int SoPhongTrong => DanhSachPhong?.Count(p => p.TrangThai == "Trống") ?? 0;
-        public int SoPhongDangDung => DanhSachPhong?.Count(p => p.TrangThai == "Đang Dùng") ?? 0;
-        public int SoPhongKhac => DanhSachPhong?.Count(p => p.TrangThai == "Dọn Dẹp"
-                                                            || p.TrangThai == "Bảo Trì") ?? 0;
+        public int TongPhong => DanhSachPhong?
+    .Count(p => p.IsEnable == true) ?? 0;
+
+        public int SoPhongTrong => DanhSachPhong?
+            .Count(p => p.IsEnable == true && p.TrangThai == "Trống") ?? 0;
+
+        public int SoPhongDangDung => DanhSachPhong?
+            .Count(p => p.IsEnable == true && p.TrangThai == "Đang Dùng") ?? 0;
+
+        public int SoPhongKhac => DanhSachPhong?
+            .Count(p => p.IsEnable == true &&
+                       (p.TrangThai == "Dọn Dẹp" || p.TrangThai == "Bảo Trì")) ?? 0;
 
         private Phong _selectedPhong;
         public Phong SelectedPhong
@@ -182,8 +189,10 @@ namespace QL_QuanKaraoke_BETA_1.ViewModel
 
         public void LoadPhong()
         {
-
-            var data = DataProvider.Ins.DB.Phongs.Include("LoaiPhong").ToList();
+            var data = DataProvider.Ins.DB.Phongs
+                                   .Include("LoaiPhong")
+                                   .Where(p => p.IsEnable == true) 
+                                   .ToList();
 
             DanhSachPhong = new ObservableCollection<Phong>(data);
         }
