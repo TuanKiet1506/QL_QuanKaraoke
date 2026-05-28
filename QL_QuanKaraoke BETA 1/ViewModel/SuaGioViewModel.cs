@@ -1,6 +1,7 @@
 ﻿using QL_QuanKaraoke_BETA_1;
 using QL_QuanKaraoke_BETA_1.Data;
 using QL_QuanKaraoke_BETA_1.Model;
+using QL_QuanKaraoke_BETA_1.View;
 using QL_QuanKaraoke_BETA_1.ViewModel;
 using System;
 using System.Collections.ObjectModel;
