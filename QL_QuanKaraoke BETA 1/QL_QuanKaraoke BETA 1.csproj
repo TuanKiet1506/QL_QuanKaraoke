@@ -174,13 +174,13 @@
     <Compile Include="View\QL_BangGiaUC.xaml.cs">
       <DependentUpon>QL_BangGiaUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QL_DangNhap.xaml.cs">
+    <Compile Include="View\QL_DangNhap.xaml.cs">
       <DependentUpon>QL_DangNhap.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\QL_DichVuUC.xaml.cs">
       <DependentUpon>QL_DichVuUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QL_HangThanhVienUC.xaml.cs">
+    <Compile Include="View\QL_HangThanhVienUC.xaml.cs">
       <DependentUpon>QL_HangThanhVienUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\QL_HeThongUC.xaml.cs">
@@ -330,7 +330,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QL_DangNhap.xaml">
+    <Page Include="View\QL_DangNhap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -338,7 +338,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QL_HangThanhVienUC.xaml">
+    <Page Include="View\QL_HangThanhVienUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
