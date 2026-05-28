@@ -71,10 +71,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddDichVu.xaml.cs">
+    <Compile Include="View\AddDichVu.xaml.cs">
       <DependentUpon>AddDichVu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddHangTV.xaml.cs">
+    <Compile Include="View\AddHangTV.xaml.cs">
       <DependentUpon>AddHangTV.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddKhachHang.xaml.cs">
@@ -201,7 +201,7 @@
     <Compile Include="QuenMatKhauWindow.xaml.cs">
       <DependentUpon>QuenMatKhauWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SuaDichVu.xaml.cs">
+    <Compile Include="View\SuaDichVu.xaml.cs">
       <DependentUpon>SuaDichVu.xaml</DependentUpon>
     </Compile>
     <Compile Include="SuaGia.xaml.cs">
@@ -262,11 +262,11 @@
     <Compile Include="ViewModel\SuaPhongViewModel.cs" />
     <Compile Include="ViewModel\ThanhToanViewModel.cs" />
     <Compile Include="ViewModel\TrangChuViewModel.cs" />
-    <Page Include="AddDichVu.xaml">
+    <Page Include="View\AddDichVu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddHangTV.xaml">
+    <Page Include="View\AddHangTV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -366,7 +366,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SuaDichVu.xaml">
+    <Page Include="View\SuaDichVu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

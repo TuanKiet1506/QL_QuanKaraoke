@@ -1,18 +1,18 @@
-﻿<Window x:Class="QL_QuanKaraoke_BETA_1.SuaDichVu"
+﻿<Window x:Class="QL_QuanKaraoke_BETA_1.View.AddHangTV"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QL_QuanKaraoke_BETA_1"
         mc:Ignorable="d"
-        Title="SuaDichVu"
-         Height="780" Width="600"
+        Title="AddHangTV"
+        Height="450" Width="600"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         WindowStyle="None"
         ResizeMode="NoResize"
-        AllowsTransparency="True" DataContext="{StaticResource SuaDichVuVM}"
-        Name="SuaDVWD">
+        AllowsTransparency="True"
+        Name="AddHangTVWD" DataContext="{StaticResource AddHangThanhVienVM}">
     <Border CornerRadius="20" Background="#1A1A2E">
 
         <Border.Effect>
@@ -52,20 +52,20 @@
                                     <GradientStop Color="#F9A8A8" Offset="1"/>
                                 </LinearGradientBrush>
                             </Border.Background>
-                            <TextBlock Text="🍽️" 
-                                       VerticalAlignment="Center"
+                            <TextBlock Text="👑" 
+                                       FontSize="20" 
+                                       VerticalAlignment="Center" 
                                        HorizontalAlignment="Center"
-                                       Foreground="Black"
-                                       FontSize="20"/>
+                                       Foreground="Black"/>
                         </Border>
 
                         <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="SỬA THÔNG TIN DỊCH VỤ"
+                            <TextBlock Text="THÊM HẠNG MỚI"
                                        Foreground="#F07070"
                                        FontSize="16"
                                        FontWeight="Bold"
                                        FontFamily="Segoe UI"/>
-                            <TextBlock Text="Sửa dịch vụ"
+                            <TextBlock Text="Xác nhận thông tin của hạng"
                                        Foreground="#888899"
                                        FontSize="11"
                                        FontFamily="Segoe UI"/>
@@ -76,7 +76,7 @@
                     <Button Grid.Column="1"
                             Style="{StaticResource CloseButtonStyle}" 
                             Command="{Binding ExitCommand}"
-                            CommandParameter="{Binding ElementName=SuaDVWD}"
+                            CommandParameter="{Binding ElementName=AddHangTVWD}"
                             VerticalAlignment="Top"/>
                 </Grid>
 
@@ -99,7 +99,7 @@
                                        FontSize="14"
                                        VerticalAlignment="Top"
                                        Margin="0,0,8,0"/>
-                            <TextBlock Text="Vui lòng nhập đúng thông tin để xác nhận thông tin dịch vụ."
+                            <TextBlock Text="Vui lòng nhập đúng thông tin để xác nhận thông tin của hạng mới."
                                        Foreground="#AAAACC"
                                        FontSize="12"
                                        FontFamily="Segoe UI"
@@ -107,52 +107,14 @@
                         </StackPanel>
                     </Border>
 
-                    <!-- TÊN ĐĂNG NHẬP -->
-                    <TextBlock Text="Tên dịch vụ"
-                               Foreground="#CCCCDD"
-                               FontSize="12"
-                               FontFamily="Segoe UI"
-                               FontWeight="SemiBold"
-                               Margin="0,0,0,6"/>
-
-                    <Border Background="#353340"
-                            CornerRadius="8"
-                            Height="46"
-                            Margin="0,0,0,16">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="44"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-
-                            <TextBlock Text="🛎️"
-                                       VerticalAlignment="Center"
-                                       HorizontalAlignment="Center"
-                                       Foreground="GhostWhite"
-                                       FontSize="18"/>
-
-                            <TextBox Grid.Column="1"
-                                     Background="Transparent"
-                                     BorderThickness="0"
-                                     Foreground="#E6E6E6"
-                                     FontSize="14"
-                                     VerticalContentAlignment="Center"
-                                     Padding="4,0,10,0"
-                                     Style="{StaticResource TextBoxTheme}"
-                                     Tag="Tên dịch vụ"
-                                     Text="{Binding TenDichVu, UpdateSourceTrigger=PropertyChanged}"/>
-                        </Grid>
-                    </Border>
 
                     <!-- HỌ TÊN -->
-                    <TextBlock Text="Đơn vị tính"
+                    <TextBlock Text="Tên Hạng"
                                Foreground="#CCCCDD"
                                FontSize="12"
                                FontFamily="Segoe UI"
                                FontWeight="SemiBold"
                                Margin="0,0,0,6"/>
-
-
 
                     <Border Background="#353340"
                             CornerRadius="8"
@@ -164,11 +126,11 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock Text="⚖️"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Foreground="GhostWhite"
-            FontSize="18"/>
+                            <TextBlock Text="🏷️"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       FontSize="20"
+                                       Foreground="#888899"/>
 
                             <TextBox Grid.Column="1"
                                      Background="Transparent"
@@ -178,13 +140,13 @@
                                      VerticalContentAlignment="Center"
                                      Padding="4,0,10,0"
                                      Style="{StaticResource TextBoxTheme}"
-                                     Tag="Đơn vị tính"
-                                     Text="{Binding DonViTinh, UpdateSourceTrigger=PropertyChanged}"/>
+                                     Tag="Nhập tên hạng"
+                                     Text="{Binding TenHang, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                     </Border>
 
                     <!-- SỐ ĐIỆN THOẠI -->
-                    <TextBlock Text="Đơn giá"
+                    <TextBlock Text="Phần trăm giảm giá (Ví dụ: 0.1, 0.25,...)"
                                Foreground="#CCCCDD"
                                FontSize="12"
                                FontFamily="Segoe UI"
@@ -201,8 +163,8 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock Text="💲"
-                                       Foreground="GhostWhite"
+                            <TextBlock Text="👥"
+                                       Foreground="#888899"
                                        FontSize="15"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
@@ -215,148 +177,21 @@
                                      VerticalContentAlignment="Center"
                                      Padding="4,0,10,0"
                                      Style="{StaticResource TextBoxTheme}"
-                                     Tag="Đơn giá"
-                                     Text="{Binding DonGia, UpdateSourceTrigger=PropertyChanged}"/>
+                                     Tag="Nhập phần trăm giảm giá"
+                                     Text="{Binding Ptgg, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                     </Border>
 
-                    <TextBlock Text="Tồn kho"
-                               Foreground="#CCCCDD"
-                               FontSize="12"
-                               FontFamily="Segoe UI"
-                               FontWeight="SemiBold"
-                               Margin="0,0,0,6"/>
 
-                    <Border Background="#353340"
-                            CornerRadius="8"
-                            Height="46"
-                            Margin="0,0,0,28">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="44"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
 
-                            <TextBlock Text="📦"
-                                       Foreground="GhostWhite"
-                                       FontSize="15"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
-
-                            <TextBox Grid.Column="1"
-                                     Background="Transparent"
-                                     BorderThickness="0"
-                                     Foreground="#E6E6E6" 
-                                     FontSize="14"
-                                     VerticalContentAlignment="Center"
-                                     Padding="4,0,10,0"
-                                     Style="{StaticResource TextBoxTheme}"
-                                     Tag="Tồn kho"
-                                     Text="{Binding TonKho}"/>
-                        </Grid>
-                    </Border>
-
-                    <TextBlock Text="Cảnh báo tồn kho"
-           Foreground="#CCCCDD"
-           FontSize="12"
-           FontFamily="Segoe UI"
-           FontWeight="SemiBold"
-           Margin="0,0,0,6"/>
-
-                    <Border Background="#353340"
-        CornerRadius="8"
-        Height="46"
-        Margin="0,0,0,28">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="44"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-
-                            <TextBlock Text="⚠️"
-                   Foreground="GhostWhite"
-                   FontSize="15"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
-
-                            <TextBox Grid.Column="1"
-                 Background="Transparent"
-                 BorderThickness="0"
-                 Foreground="#E6E6E6" 
-                 FontSize="14"
-                 VerticalContentAlignment="Center"
-                 Padding="4,0,10,0"
-                 Style="{StaticResource TextBoxTheme}"
-                 Tag="Cảnh báo tồn kho"
-                                     Text="{Binding CanhBaoTonKho}"/>
-                        </Grid>
-                    </Border>
-
-                    <Button Height="46"
-                            Cursor="Hand"
-                            BorderThickness="0" 
-                            Command="{Binding SuaHinhAnhCommand}"
-                            CommandParameter="{Binding ElementName=SuaDVWD}" >
-
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-
-                                <Border x:Name="ConfirmBorder"
-                                        CornerRadius="8"
-                                        Height="46">
-
-                                    <Border.Background>
-                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                            <GradientStop Color="#1D4ED8" Offset="0"/>
-                                            <GradientStop Color="#38BDF8" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Border.Background>
-
-                                    <StackPanel Orientation="Horizontal"
-                                                HorizontalAlignment="Center"
-                                                VerticalAlignment="Center">
-
-                                        <TextBlock Text="✏"
-                                                   Foreground="White"
-                                                   FontSize="14"
-                                                   VerticalAlignment="Center"
-                                                   Margin="0,0,8,0"/>
-
-                                        <TextBlock Text="SỬA HÌNH ẢNH"
-                                                   Foreground="White"
-                                                   FontSize="14"
-                                                   FontWeight="Bold"
-                                                   FontFamily="Segoe UI"
-                                                   VerticalAlignment="Center"/>
-                                    </StackPanel>
-
-                                </Border>
-
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="ConfirmBorder"
-                                                Property="Opacity"
-                                                Value="0.88"/>
-                                    </Trigger>
-                                    <Trigger Property="IsPressed" Value="True">
-                                        <Setter TargetName="ConfirmBorder"
-                                                Property="Opacity"
-                                                Value="0.72"/>
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-
-                            </ControlTemplate>
-                        </Button.Template>
-
-                    </Button>
 
                     <!-- BUTTON XÁC NHẬN -->
                     <Button Height="46"
                             Cursor="Hand"
                             BorderThickness="0" 
                             Command="{Binding XacNhanCommand}"
-                            CommandParameter="{Binding ElementName=SuaDVWD}"
-                            Margin="0, 35, 0, 0">
+                            CommandParameter="{Binding ElementName=AddHangTVWD}"
+                            Margin="0, 18">
 
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
@@ -416,4 +251,5 @@
 
         </Grid>
     </Border>
+
 </Window>
