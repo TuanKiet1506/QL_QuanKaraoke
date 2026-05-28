@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:viewmodel="clr-namespace:QL_QuanKaraoke_BETA_1.ViewModel"
              xmlns:local="clr-namespace:QL_QuanKaraoke_BETA_1"
+             xmlns:view="clr-namespace:QL_QuanKaraoke_BETA_1.View"
              StartupUri="MainWindow.xaml"
              >
     <Application.Resources>
@@ -20,7 +21,7 @@
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewmodel:TrangChuViewModel}">
-                <local:TrangChuUC/>
+                <view:TrangChuUC/>
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewmodel:DatPhongViewModel}">
@@ -28,7 +29,7 @@
             </DataTemplate>
             
             <DataTemplate DataType="{x:Type viewmodel:QL_NhanVienViewModel}">
-                <local:QL_NHANVIENUC/>
+                <view:QL_NHANVIENUC/>
             </DataTemplate>
             
             <DataTemplate DataType="{x:Type viewmodel:QL_KhachHangViewModel}">
@@ -44,7 +45,7 @@
             </DataTemplate>
             
             <DataTemplate DataType="{x:Type viewmodel:QL_BangGiaViewModel}">
-                <local:QL_BangGiaUC/>
+                <view:QL_BangGiaUC/>
             </DataTemplate>
             
             <DataTemplate DataType="{x:Type viewmodel:QL_HangThanhVienViewModel}">

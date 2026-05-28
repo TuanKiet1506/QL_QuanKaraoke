@@ -171,7 +171,7 @@
     <Compile Include="MoPhong.xaml.cs">
       <DependentUpon>MoPhong.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QL_BangGiaUC.xaml.cs">
+    <Compile Include="View\QL_BangGiaUC.xaml.cs">
       <DependentUpon>QL_BangGiaUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="QL_DangNhap.xaml.cs">
@@ -192,7 +192,7 @@
     <Compile Include="QL_KhachHangUC.xaml.cs">
       <DependentUpon>QL_KhachHangUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QL_NHANVIENUC.xaml.cs">
+    <Compile Include="View\QL_NHANVIENUC.xaml.cs">
       <DependentUpon>QL_NHANVIENUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="QL_PhongUC.xaml.cs">
@@ -225,7 +225,7 @@
     <Compile Include="ThanhToanWindow.xaml.cs">
       <DependentUpon>ThanhToanWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TrangChuUC.xaml.cs">
+    <Compile Include="View\TrangChuUC.xaml.cs">
       <DependentUpon>TrangChuUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AddDichVuViewModel.cs" />
@@ -326,7 +326,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QL_BangGiaUC.xaml">
+    <Page Include="View\QL_BangGiaUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -354,7 +354,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="QL_NHANVIENUC.xaml">
+    <Page Include="View\QL_NHANVIENUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -426,7 +426,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TrangChuUC.xaml">
+    <Page Include="View\TrangChuUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -519,5 +519,6 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
