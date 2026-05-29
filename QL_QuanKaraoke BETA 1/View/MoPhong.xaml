@@ -8,12 +8,8 @@
         Title="MoPhong" Width="420" SizeToContent="Height"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Background="#1A1825" WindowStyle="None" Name="DatPhongWD" DataContext="{StaticResource MoPhongVM}">
+        Background="White" WindowStyle="None" Name="DatPhongWD" DataContext="{StaticResource MoPhongVM}">
     <Border Padding="28,24,28,28">
-
-        <Border.Effect>
-            <DropShadowEffect Color="#000000" BlurRadius="30" ShadowDepth="0" Opacity="0.6"/>
-        </Border.Effect>
 
         <StackPanel>
             <Button HorizontalAlignment="Right"
@@ -26,9 +22,10 @@
                 <TextBlock Text="🎤"
                            FontSize="20"
                            VerticalAlignment="Center"
-                           Margin="0,0,10,0"/>
+                           Margin="0,0,10,0"
+                           Foreground="#F88888"/>
                 <TextBlock Text="Thông tin đặt phòng"
-                           Foreground="White"
+                           Foreground="Black"
                            FontSize="18"
                            FontWeight="Bold"
                            VerticalAlignment="Center"/>
@@ -41,15 +38,16 @@
                  PHẦN 1: Số điện thoại + Auto Fill
             ══════════════════════════════════════ -->
             <TextBlock Text="Số điện thoại"
-                       Foreground="#9490B0"
+                       Foreground="Black"
                        FontSize="12"
                        Margin="0,0,0,6"/>
 
 
-            <Border Background="#353340"
-                        CornerRadius="8"
+            <Border Background="White"
                         Height="46"
-                        Margin="0,0,0,16">
+                        Margin="0,0,0,16"
+                        BorderBrush="#CCCCCC"
+                    BorderThickness="1">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="44"/>
@@ -60,11 +58,9 @@
                             x:Name="TxtSoDienThoai"
                             Background="Transparent"
                             BorderThickness="0"
-                            Foreground="#E6E6E6"
+                            Foreground="#222222"
                             FontSize="14"
                             VerticalContentAlignment="Center"
-                            Tag="Số điện thoại"
-                            Style="{StaticResource TextBoxTheme}"
                             Text="{Binding SoDienThoai, UpdateSourceTrigger=PropertyChanged}"
                             IsEnabled="{Binding IsEditable}"/>
                 </Grid>
@@ -130,14 +126,15 @@
             </Button>
 
             <TextBlock Text="Họ tên"
-                       Foreground="#9490B0"
+                       Foreground="Black"
                        FontSize="12"
                        Margin="0,10,0,6"/>
 
-            <Border Background="#353340"
-                    CornerRadius="8"
+            <Border Background="White"
                     Height="46"
-                    Margin="0,0,0,16">
+                    Margin="0,0,0,16"
+                    BorderBrush="#CCCCCC"
+                    BorderThickness="1">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="44"/>
@@ -147,11 +144,9 @@
                     <TextBox Grid.Column="1"
                              Background="Transparent"
                              BorderThickness="0"
-                            Foreground="#E6E6E6"
+                            Foreground="Black"
                             FontSize="14"
                            VerticalContentAlignment="Center"
-                           Tag="Họ tên"
-                            Style="{StaticResource TextBoxTheme}"
                              Text="{Binding HoTen, UpdateSourceTrigger=PropertyChanged}"
                              IsEnabled="{Binding IsEditable}"/>
                 </Grid>
@@ -162,14 +157,15 @@
                  PHẦN 3: Hạng thành viên
             ══════════════════════════════════════ -->
             <TextBlock Text="Hạng thành viên"
-                       Foreground="#9490B0"
+                       Foreground="Black"
                        FontSize="12"
                        Margin="0,0,0,6"/>
 
-            <Border Background="#353340"
-                   CornerRadius="8"
+            <Border Background="White"
                     Height="46"
-                    Margin="0,0,0,16">
+                    Margin="0,0,0,16"
+                    BorderBrush="#CCCCCC"
+                    BorderThickness="1">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="44"/>
@@ -179,11 +175,9 @@
                     <TextBox Grid.Column="1"
                                Background="Transparent"
                                 BorderThickness="0"
-                                Foreground="#E6E6E6"
+                                Foreground="Black"
                                 FontSize="14"
                                 VerticalContentAlignment="Center"
-                                Tag="Hạng thành viên"
-                                Style="{StaticResource TextBoxTheme}"
                              Text="{Binding HangThanhVien, UpdateSourceTrigger=PropertyChanged}"
                              IsEnabled="{Binding IsEditable}"/>
                 </Grid>
@@ -194,14 +188,15 @@
                  PHẦN 4: Phần trăm giảm giá
             ══════════════════════════════════════ -->
             <TextBlock Text="Phần trăm giảm giá"
-                       Foreground="#9490B0"
+                       Foreground="Black"
                        FontSize="12"
                        Margin="0,0,0,6"/>
 
-            <Border Background="#353340"
-            CornerRadius="8"
+            <Border Background="White"
             Height="46"
-            Margin="0,0,0,16">
+            Margin="0,0,0,16"
+                    BorderBrush="#CCCCCC"
+                    BorderThickness="1">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="44"/>
@@ -211,11 +206,9 @@
                     <TextBox Grid.Column="1"
                 Background="Transparent"
                 BorderThickness="0"
-                Foreground="#E6E6E6"
+                Foreground="Black"
                 FontSize="14"
                 VerticalContentAlignment="Center"
-                Tag="Phần trăm giảm giá"
-                Style="{StaticResource TextBoxTheme}"
                              Text="{Binding PhanTramGiamGia, UpdateSourceTrigger=PropertyChanged}"
                              IsEnabled="{Binding IsEditable}"/>
                 </Grid>
