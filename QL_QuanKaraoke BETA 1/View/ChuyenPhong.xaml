@@ -46,7 +46,7 @@
                            FontSize="20"
                            FontWeight="Bold"/>
                 <TextBlock Text="Di chuyển khách sang phòng khác"
-                           Foreground="#9490B0"
+                           Foreground="Black"
                            FontSize="11"
                            Margin="0,2,0,0"/>
             </StackPanel>

@@ -6,88 +6,13 @@
              xmlns:local="clr-namespace:QL_QuanKaraoke_BETA_1"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             DataContext="{StaticResource QLKhachHangVM}">
+             DataContext="{StaticResource QLKhachHangVM}"
+             Background="White">
     <UserControl.Resources>
 
         <!-- ══════════════════════════════════════
              LISTVIEW — COLUMN HEADER
         ══════════════════════════════════════ -->
-        <Style x:Key="HeaderStyle" TargetType="GridViewColumnHeader">
-            <Setter Property="Background"           Value="#22203A"/>
-            <Setter Property="Foreground"           Value="#9490B0"/>
-            <Setter Property="FontSize"             Value="11"/>
-            <Setter Property="FontWeight"           Value="SemiBold"/>
-            <Setter Property="Padding"              Value="14,10"/>
-            <Setter Property="BorderThickness"      Value="0"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="GridViewColumnHeader">
-                        <Border Background="{TemplateBinding Background}"
-                                Padding="{TemplateBinding Padding}">
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!-- ══════════════════════════════════════
-             LISTVIEW — ROW (ListViewItem)
-        ══════════════════════════════════════ -->
-        <Style x:Key="NvRowStyle" TargetType="ListViewItem">
-            <Setter Property="Background"      Value="Transparent"/>
-            <Setter Property="Foreground"      Value="#F0EEF8"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding"         Value="0"/>
-            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ListViewItem">
-                        <Border x:Name="RowBorder"
-                                Background="{TemplateBinding Background}"
-                                BorderThickness="0,0,0,1"
-                                BorderBrush="#1E1C31"
-                                Padding="0,2">
-                            <GridViewRowPresenter
-                                Columns="{Binding Path=View.Columns,
-                                          RelativeSource={RelativeSource AncestorType=ListView}}"
-                                Content="{TemplateBinding Content}"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="RowBorder" Property="Background" Value="#22203A"/>
-                            </Trigger>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="RowBorder" Property="Background" Value="#2A2740"/>
-                                <Setter TargetName="RowBorder" Property="BorderBrush" Value="#7C5CFC"/>
-                                <Setter TargetName="RowBorder" Property="BorderThickness" Value="0,0,0,1"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!-- ══════════════════════════════════════
-             LISTVIEW CHÍNH
-        ══════════════════════════════════════ -->
-        <Style x:Key="NvListView" TargetType="ListView">
-            <Setter Property="Background"       Value="#1A1829"/>
-            <Setter Property="BorderThickness"  Value="1.5"/>
-            <Setter Property="BorderBrush"      Value="#2E2B4A"/>
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility"   Value="Auto"/>
-        </Style>
-
-        <!-- ══════════════════════════════════════
-             BADGE: TRẠNG THÁI
-             TrangThai = 1  → Đang làm việc (xanh)
-             TrangThai = 0  → Nghỉ việc / Bị khóa (xem ChucVu/flag)
-             → Dùng DataTrigger trực tiếp trong CellTemplate
-        ══════════════════════════════════════ -->
-
     </UserControl.Resources>
 
     <!-- ══════════════════════════════════════════════════════════
@@ -117,9 +42,10 @@
 
         <!-- ══════════ ROW 0 — Tiêu đề ══════════ -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
-            <TextBlock Text="👤" FontSize="22" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBlock Text="👤" FontSize="22" VerticalAlignment="Center" Margin="0,0,10,0"
+                       Foreground="#F88888"/>
             <TextBlock Text="Quản Lý Khách Hàng"
-                       Foreground="White"
+                       Foreground="#F88888"
                        FontSize="22"
                        FontWeight="Bold"
                        VerticalAlignment="Center"/>
@@ -127,10 +53,9 @@
 
         <!-- ══════════ ROW 2 — Input HoTen + SoDienThoai ══════════ -->
         <Border Grid.Row="2"
-                Background="#1E1C31"
-                CornerRadius="14"
-                BorderThickness="1.5"
-                BorderBrush="#2E2B4A"
+                Background="#F9F9F9"
+                BorderThickness="1"
+                BorderBrush="#DDDDDD"
                 Padding="20,16">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -145,26 +70,26 @@
                 <!-- Họ tên -->
                 <TextBlock Grid.Column="0"
                            Text="Họ &amp; Tên"
-                           Foreground="#9490B0"
+                           Foreground="#222222"
                            FontSize="12"
                            FontWeight="SemiBold"
                            VerticalAlignment="Center"
                            Margin="0,0,10,0"/>
-                <Border Background="#353340"
-                        CornerRadius="8"
+                <Border Background="White"
                         Height="25"
                         Margin="0,0,0,0" 
                         Grid.Column="1"
+                        BorderBrush="#CCCCCC"
+                        BorderThickness="1"
                         >
                     <Grid>
                         <TextBox
                              Background="Transparent"
                              BorderThickness="0"
-                             Foreground="#E6E6E6"
+                             Foreground="Black"
                              FontSize="14"
                              VerticalContentAlignment="Center"
                              Padding="4,0,10,0"
-                             Style="{StaticResource TextBoxTheme}"
                              IsReadOnly="True"
                              Text="{Binding SelectedKhachHang.HoTen}"
                      />
@@ -174,26 +99,26 @@
                 <!-- Số điện thoại -->
                 <TextBlock Grid.Column="3"
                            Text="Số Điện Thoại"
-                           Foreground="#9490B0"
+                           Foreground="#222222"
                            FontSize="12"
                            FontWeight="SemiBold"
                            VerticalAlignment="Center"
                            Margin="0,0,10,0"/>
-                <Border Background="#353340"
-                           CornerRadius="8"
+                <Border Background="White"
                            Height="25"
                            Margin="0,0,0,0" 
                            Grid.Column="4"
+                        BorderBrush="#CCCCCC"
+                        BorderThickness="1"
                                            >
                     <Grid>
                         <TextBox
                                 Background="Transparent"
                                 BorderThickness="0"
-                                Foreground="#E6E6E6"
+                                Foreground="#222222"
                                 FontSize="14"
                                 VerticalContentAlignment="Center"
                                 Padding="4,0,10,0"
-                                Style="{StaticResource TextBoxTheme}"
                                 IsReadOnly="True"
                                 Text="{Binding SelectedKhachHang.SoDienThoai}"
                                    />
@@ -214,7 +139,6 @@
             <!-- ComboBox lọc trạng thái -->
             <ComboBox Grid.Column="0"
           Height="38"
-          Style="{StaticResource ModernComboBox}"
           ItemsSource="{Binding DSHangTV, UpdateSourceTrigger=PropertyChanged}"
           SelectedItem="{Binding HangDangChon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
           DisplayMemberPath="TenHang"
@@ -222,10 +146,11 @@
 
             <!-- TextBox tìm kiếm -->
             <Grid Grid.Column="2">
-                <Border Background="#2A2740"
-                CornerRadius="8"
+                <Border Background="White"
                 Height="46"
-                Margin="0">
+                Margin="0"
+                        BorderBrush="#CCCCCC"
+                        BorderThickness="1">
 
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -242,12 +167,11 @@
                         <TextBox Grid.Column="1" Text="{Binding TuKhoa, UpdateSourceTrigger=PropertyChanged}"
                          Background="Transparent"
                          BorderThickness="0"
-                         Foreground="#E6E6E6"
+                         Foreground="Black"
                          FontSize="14"
                          VerticalContentAlignment="Center"
                          Padding="4,0,10,0"
-                         Style="{StaticResource TextBoxTheme}"
-                         Tag="Tìm kiếm" Margin="0,0,-5,0"/>
+                         Margin="0,0,-5,0"/>
                     </Grid>
 
                 </Border>
@@ -256,24 +180,25 @@
 
         <!-- ══════════ ROW 6 — ListView ══════════ -->
         <Border Grid.Row="6"
-                CornerRadius="14"
                 ClipToBounds="True"
                 BorderThickness="1.5"
                 BorderBrush="#2E2B4A">
-            <ListView Style="{StaticResource NvListView}"
-                      ItemContainerStyle="{StaticResource NvRowStyle}"
+            <ListView BorderBrush="#CCCCCC"
+                      BorderThickness="1"
+                      FontSize="13"
+                      FontFamily="Segoe UI"
                       ItemsSource="{Binding DanhSachKhachHang}"
                       SelectedItem="{Binding SelectedKhachHang}">
 
                 <ListView.View>
-                    <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
+                    <GridView>
 
                         <!-- Mã NV -->
                         <GridViewColumn Header="Mã NV" Width="70">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding MaKhachHang}"
-                                               Foreground="#9490B0"
+                                               Foreground="Black"
                                                FontSize="12"
                                                Padding="14,10"/>
                                 </DataTemplate>
@@ -298,7 +223,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding SoDienThoai}"
-                                               Foreground="#F0EEF8"
+                                               Foreground="Black"
                                                FontSize="12"
                                                FontWeight="SemiBold"
                                                Padding="14,10"/>
@@ -310,7 +235,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding HangThanhVien.TenHang}"
-                       Foreground="#F0EEF8"
+                       Foreground="Black"
                        FontSize="12"
                        FontWeight="SemiBold"
                        Padding="14,10"/>

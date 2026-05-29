@@ -4,90 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QL_QuanKaraoke_BETA_1"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" Background="White"
              d:DesignHeight="450" d:DesignWidth="800" DataContext="{StaticResource QL_BangGiaVM}">
-    <UserControl.Resources>
-
-        <!-- ══════════════════════════════════════
-             LISTVIEW — COLUMN HEADER
-        ══════════════════════════════════════ -->
-        <Style x:Key="HeaderStyle" TargetType="GridViewColumnHeader">
-            <Setter Property="Background"           Value="#22203A"/>
-            <Setter Property="Foreground"           Value="#9490B0"/>
-            <Setter Property="FontSize"             Value="11"/>
-            <Setter Property="FontWeight"           Value="SemiBold"/>
-            <Setter Property="Padding"              Value="14,10"/>
-            <Setter Property="BorderThickness"      Value="0"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="GridViewColumnHeader">
-                        <Border Background="{TemplateBinding Background}"
-                                Padding="{TemplateBinding Padding}">
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!-- ══════════════════════════════════════
-             LISTVIEW — ROW (ListViewItem)
-        ══════════════════════════════════════ -->
-        <Style x:Key="NvRowStyle" TargetType="ListViewItem">
-            <Setter Property="Background"      Value="Transparent"/>
-            <Setter Property="Foreground"      Value="#F0EEF8"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding"         Value="0"/>
-            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ListViewItem">
-                        <Border x:Name="RowBorder"
-                                Background="{TemplateBinding Background}"
-                                BorderThickness="0,0,0,1"
-                                BorderBrush="#1E1C31"
-                                Padding="0,2">
-                            <GridViewRowPresenter
-                                Columns="{Binding Path=View.Columns,
-                                          RelativeSource={RelativeSource AncestorType=ListView}}"
-                                Content="{TemplateBinding Content}"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="RowBorder" Property="Background" Value="#22203A"/>
-                            </Trigger>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="RowBorder" Property="Background" Value="#2A2740"/>
-                                <Setter TargetName="RowBorder" Property="BorderBrush" Value="#7C5CFC"/>
-                                <Setter TargetName="RowBorder" Property="BorderThickness" Value="0,0,0,1"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!-- ══════════════════════════════════════
-             LISTVIEW CHÍNH
-        ══════════════════════════════════════ -->
-        <Style x:Key="NvListView" TargetType="ListView">
-            <Setter Property="Background"       Value="#1A1829"/>
-            <Setter Property="BorderThickness"  Value="1.5"/>
-            <Setter Property="BorderBrush"      Value="#2E2B4A"/>
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility"   Value="Auto"/>
-        </Style>
-
-        <!-- ══════════════════════════════════════
-             BADGE: TRẠNG THÁI
-             TrangThai = 1  → Đang làm việc (xanh)
-             TrangThai = 0  → Nghỉ việc / Bị khóa (xem ChucVu/flag)
-             → Dùng DataTrigger trực tiếp trong CellTemplate
-        ══════════════════════════════════════ -->
-
-    </UserControl.Resources>
 
     <!-- ══════════════════════════════════════════════════════════
          ROOT
@@ -118,7 +36,7 @@
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
             <TextBlock Text="💰" FontSize="22" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="#F88888"/>
             <TextBlock Text="Quản Lý Bảng Giá"
-                       Foreground="White"
+                       Foreground="#F88888"
                        FontSize="22"
                        FontWeight="Bold"
                        VerticalAlignment="Center"/>
@@ -126,10 +44,9 @@
 
         <!-- ══════════ ROW 2 — Input HoTen + SoDienThoai ══════════ -->
         <Border Grid.Row="2"
-                Background="#1E1C31"
-                CornerRadius="14"
+                Background="#F9F9F9"
                 BorderThickness="1.5"
-                BorderBrush="#2E2B4A"
+                BorderBrush="#DDDDDD"
                 Padding="20,16">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -144,22 +61,23 @@
                 <!-- Họ tên -->
                 <TextBlock Grid.Column="0"
                            Text="Loại Phòng"
-                           Foreground="#9490B0"
+                           Foreground="Black"
                            FontSize="12"
                            FontWeight="SemiBold"
                            VerticalAlignment="Center"
                            Margin="0,0,10,0"/>
-                <Border Background="#353340"
-                        CornerRadius="8"
+                <Border Background="White"
                         Height="25"
                         Margin="0,0,0,0" 
                         Grid.Column="1"
+                        BorderBrush="#CCCCCC"
+                        BorderThickness="1"
                         >
                     <Grid>
                         <TextBox
                              Background="Transparent"
                              BorderThickness="0"
-                             Foreground="#E6E6E6"
+                             Foreground="Black"
                              FontSize="14"
                              VerticalContentAlignment="Center"
                              Padding="4,0,10,0"
@@ -173,22 +91,23 @@
                 <!-- Số điện thoại -->
                 <TextBlock Grid.Column="3"
                            Text="Đơn Giá/ Giờ"
-                           Foreground="#9490B0"
+                           Foreground="Black"
                            FontSize="12"
                            FontWeight="SemiBold"
                            VerticalAlignment="Center"
                            Margin="0,0,10,0"/>
-                <Border Background="#353340"
-                           CornerRadius="8"
+                <Border Background="White"
                            Height="25"
                            Margin="0,0,0,0" 
                            Grid.Column="4"
+                        BorderBrush="#CCCCCC"
+                        BorderThickness="1"
                                            >
                     <Grid>
                         <TextBox
                                 Background="Transparent"
                                 BorderThickness="0"
-                                Foreground="#E6E6E6"
+                                Foreground="Black"
                                 FontSize="14"
                                 VerticalContentAlignment="Center"
                                 Padding="4,0,10,0"
@@ -215,24 +134,25 @@
 
         <!-- ══════════ ROW 6 — ListView ══════════ -->
         <Border Grid.Row="6"
-                CornerRadius="14"
                 ClipToBounds="True"
                 BorderThickness="1.5"
                 BorderBrush="#2E2B4A">
-            <ListView Style="{StaticResource NvListView}"
-                      ItemContainerStyle="{StaticResource NvRowStyle}"
+            <ListView BorderBrush="#CCCCCC"
+                      BorderThickness="1"
+                      FontSize="13"
+                      FontFamily="Segoe UI"
                       ItemsSource="{Binding DSBangGia}"
                       SelectedItem="{Binding SelectedBangGia}">
 
                 <ListView.View>
-                    <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
+                    <GridView >
 
                         <!-- Mã NV -->
                         <GridViewColumn Header="Loại Phòng" Width="85">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding LoaiPhong.TenLoai}"
-                                               Foreground="#9490B0"
+                                               Foreground="Black"
                                                FontSize="12"
                                                Padding="14,10"/>
                                 </DataTemplate>
@@ -257,7 +177,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding GioKetThuc}"
-                                               Foreground="#F0EEF8"
+                                               Foreground="OrangeRed"
                                                FontSize="12"
                                                FontWeight="SemiBold"
                                                Padding="14,10"/>
@@ -270,7 +190,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Gia, StringFormat={}{0:N0}đ}"
-                                               Foreground="#F0EEF8"
+                                               Foreground="BlueViolet"
                                                FontSize="12"
                                                FontWeight="SemiBold"
                                                Padding="14,10"/>
