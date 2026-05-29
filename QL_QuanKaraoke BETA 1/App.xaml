@@ -10,13 +10,8 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/ViewModelResource/ViewModelResource.xaml"/>
-                <ResourceDictionary Source="/Theme/ButtonDarkTheme.xaml"/>
                 <ResourceDictionary Source="/Theme/ControlBarDarkTheme.xaml"/>
-                <ResourceDictionary Source="/Theme/MenuButtonDarkTheme.xaml"/>
                 <ResourceDictionary Source="/Theme/TextBoxDarkTheme.xaml"/>
-                <ResourceDictionary Source="/Theme/PasswordBoxDarkTheme.xaml"/>
-                <ResourceDictionary Source="/Theme/ComboboxDarkTheme.xaml"/>
-                <ResourceDictionary Source="/Theme/DatePickerDarkTheme.xaml"/>
 
             </ResourceDictionary.MergedDictionaries>
 

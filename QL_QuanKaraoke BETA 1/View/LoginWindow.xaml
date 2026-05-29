@@ -91,7 +91,7 @@
 
 
                         <!-- USERNAME -->
-                        <Border Background="#353340"
+                        <Border Background="White"
                                 CornerRadius="8"
                                 Height="46"
                                 Margin="0,0,0,14">
@@ -111,19 +111,18 @@
                                 <TextBox Grid.Column="1" Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}"
                                          Background="Transparent"
                                          BorderThickness="0"
-                                         Foreground="#E6E6E6"
+                                         Foreground="Black"
                                          FontSize="14"
                                          VerticalContentAlignment="Center"
                                          Padding="4,0,10,0"
-                                         Style="{StaticResource TextBoxTheme}"
-                                         Tag="Username"/>
+                                         />
                             </Grid>
 
                         </Border>
 
 
                         <!-- PASSWORD -->
-                        <Border Background="#353340"
+                        <Border Background="White"
                                 CornerRadius="8"
                                 Height="46"
                                 Margin="0,0,0,28">
@@ -147,9 +146,6 @@
                                              FontFamily="Segoe UI"
                                              VerticalContentAlignment="Center"
                                              x:Name="TxtPassword"
-                                             Style="{StaticResource PasswordBoxTheme}"
-                                             Tag="Password"
-                                             local:PasswordHelper.MonitorPassword="True"
                                              >
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="PasswordChanged">

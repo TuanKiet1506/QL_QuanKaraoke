@@ -42,9 +42,6 @@ namespace QL_QuanKaraoke_BETA_1.ViewModel
         {
 
             ExitCommandQuenMatKhau = new RelayCommand<Window>((p) => {
-                if (string.IsNullOrWhiteSpace(UserName) || string.IsNullOrWhiteSpace(PhoneNumber)
-                    || string.IsNullOrWhiteSpace(Name))
-                    return false;
                 return true; 
             }, (p) => {
                 p.Close(); 
