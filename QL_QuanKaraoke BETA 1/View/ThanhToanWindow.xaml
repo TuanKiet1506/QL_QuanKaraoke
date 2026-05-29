@@ -8,7 +8,7 @@
         Title="ThanhToanWindow"
         Height="810" Width="500"
         WindowStartupLocation="CenterScreen"
-        Background="#13111F"
+        Background="White"
         ResizeMode="NoResize"
         DataContext="{StaticResource ThanhToanVM}"
         Name="ThanhToanWD">
@@ -40,17 +40,17 @@
 
         <!-- ══════════ ROW 0 — Tiêu đề ══════════ -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
-            <Border Background="#2A2740" CornerRadius="10"
+            <Border Background="#F88888"
                     Padding="10,8" Margin="0,0,12,0">
                 <TextBlock Text="💳" FontSize="18"/>
             </Border>
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="Thanh Toán"
-                           Foreground="#F0EEF8"
+                           Foreground="#F88888"
                            FontSize="20"
                            FontWeight="Bold"/>
                 <TextBlock Text="Xác nhận và hoàn tất thanh toán cho khách"
-                           Foreground="#9490B0"
+                           Foreground="Black"
                            FontSize="11"
                            Margin="0,2,0,0"/>
             </StackPanel>
@@ -58,18 +58,14 @@
 
         <!-- ══════════ ROW 2 — Card: Tiền phòng ══════════ -->
         <Border Grid.Row="2"
-                Background="#1E1C31"
-                CornerRadius="14"
+                Background="#F9F9F9"
                 BorderThickness="1.5"
-                BorderBrush="#2E2B4A"
+                BorderBrush="#DDDDDD"
                 Padding="18,14">
             <StackPanel>
 
                 <!-- Nhãn section -->
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
-                    <Border Width="4" Height="15" CornerRadius="2"
-                            Background="#7C5CFC" Margin="0,0,8,0"
-                            VerticalAlignment="Center"/>
                     <TextBlock Text="Thông Tin Phòng"
                                Foreground="#7C5CFC"
                                FontSize="12"
@@ -81,11 +77,11 @@
                 <StackPanel Margin="0,0,0,10">
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
                         <TextBlock Text="Tiền phòng"
-                                   Foreground="#9490B0"
+                                   Foreground="Black"
                                    FontSize="11"
                                    VerticalAlignment="Center"/>
-                        <!-- Badge: số phòng đã dùng (binding động) -->
-                        <Border Background="#22203A" CornerRadius="8"
+                        
+                        <Border Background="#F88888" CornerRadius="8"
                                 Padding="8,2" Margin="8,0,0,0"
                                 VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
@@ -99,19 +95,19 @@
                             </StackPanel>
                         </Border>
                     </StackPanel>
-                    <Border Background="#353340"
-                                CornerRadius="8"
+                    <Border Background="White"
                                 Height="25"
-                                Margin="0,0,0,14">
+                                Margin="0,0,0,14"
+                            BorderBrush="#CCCCCC"
+                            BorderThickness="1">
                         <Grid>
                             <TextBox
                                          Background="Transparent"
                                          BorderThickness="0"
-                                         Foreground="#E6E6E6"
+                                         Foreground="Black"
                                          FontSize="14"
                                          VerticalContentAlignment="Center"
                                          Padding="4,0,10,0"
-                                         Style="{StaticResource TextBoxTheme}"
                                          IsReadOnly="True"
                                          Text="{Binding TienPhong, StringFormat={}{0:N0}đ}"/>
                         </Grid>
@@ -124,18 +120,14 @@
 
         <!-- ══════════ ROW 4 — Card: Tiền dịch vụ ══════════ -->
         <Border Grid.Row="4"
-                Background="#1E1C31"
-                CornerRadius="14"
+                Background="#F9F9F9"
                 BorderThickness="1.5"
-                BorderBrush="#2E2B4A"
+                BorderBrush="#DDDDDD"
                 Padding="18,14">
             <StackPanel>
 
                 <!-- Nhãn section -->
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
-                    <Border Width="4" Height="15" CornerRadius="2"
-                            Background="#38BDF8" Margin="0,0,8,0"
-                            VerticalAlignment="Center"/>
                     <TextBlock Text="Dịch Vụ"
                                Foreground="#38BDF8"
                                FontSize="12"
@@ -145,22 +137,22 @@
 
                 <StackPanel>
                     <TextBlock Text="Tiền dịch vụ"
-                               Foreground="#9490B0"
+                               Foreground="Black"
                                FontSize="11"
                                Margin="0,0,0,6"/>
-                    <Border Background="#353340"
-                                CornerRadius="8"
+                    <Border Background="White"
                                 Height="25"
-                                Margin="0,0,0,14">
+                                Margin="0,0,0,14"
+                            BorderBrush="#CCCCCC"
+                            BorderThickness="1">
                         <Grid>
                             <TextBox
                                          Background="Transparent"
                                          BorderThickness="0"
-                                         Foreground="#E6E6E6"
+                                         Foreground="Black"
                                          FontSize="14"
                                          VerticalContentAlignment="Center"
                                          Padding="4,0,10,0"
-                                         Style="{StaticResource TextBoxTheme}"
                                          IsReadOnly="True"
                                          Text="{Binding TienDichVu, StringFormat={}{0:N0}đ}"/>
                         </Grid>
@@ -173,18 +165,14 @@
 
         <!-- ══════════ ROW 6 — Card: Thành viên & Giảm giá ══════════ -->
         <Border Grid.Row="6"
-                Background="#1E1C31"
-                CornerRadius="14"
+                Background="#F9F9F9"
                 BorderThickness="1.5"
-                BorderBrush="#2E2B4A"
+                BorderBrush="#DDDDDD"
                 Padding="18,14">
             <StackPanel>
 
                 <!-- Nhãn section -->
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
-                    <Border Width="4" Height="15" CornerRadius="2"
-                            Background="#FBBF24" Margin="0,0,8,0"
-                            VerticalAlignment="Center"/>
                     <TextBlock Text="Ưu Đãi Thành Viên"
                                Foreground="#FBBF24"
                                FontSize="12"
@@ -202,22 +190,22 @@
                     <!-- Hạng thành viên -->
                     <StackPanel Grid.Column="0">
                         <TextBlock Text="Hạng thành viên"
-                                   Foreground="#9490B0"
+                                   Foreground="Black"
                                    FontSize="11"
                                    Margin="0,0,0,6"/>
-                        <Border Background="#353340"
-                                CornerRadius="8"
+                        <Border Background="White"
                                 Height="25"
-                                Margin="0,0,0,14">
+                                Margin="0,0,0,14"
+                                BorderBrush="#CCCCCC"
+                                BorderThickness="1">
                             <Grid>
                                 <TextBox
                                          Background="Transparent"
                                          BorderThickness="0"
-                                         Foreground="#E6E6E6"
+                                         Foreground="Black"
                                          FontSize="14"
                                          VerticalContentAlignment="Center"
                                          Padding="4,0,10,0"
-                                         Style="{StaticResource TextBoxTheme}"
                                          IsReadOnly="True"
                                          Text="{Binding HangThanhVien}"/>
                             </Grid>
@@ -228,22 +216,22 @@
                     <!-- Phần trăm giảm -->
                     <StackPanel Grid.Column="2">
                         <TextBlock Text="Giảm giá"
-                                   Foreground="#9490B0"
+                                   Foreground="Black"
                                    FontSize="11"
                                    Margin="0,0,0,6"/>
-                        <Border Background="#353340"
-                                CornerRadius="8"
+                        <Border Background="White"
                                 Height="25"
-                                Margin="0,0,0,14">
+                                Margin="0,0,0,14"
+                                BorderBrush="#CCCCCC"
+                                BorderThickness="1">
                             <Grid>
                                 <TextBox
                                          Background="Transparent"
                                          BorderThickness="0"
-                                         Foreground="#E6E6E6"
+                                         Foreground="Black"
                                          FontSize="14"
                                          VerticalContentAlignment="Center"
                                          Padding="4,0,10,0"
-                                         Style="{StaticResource TextBoxTheme}"
                                          IsReadOnly="True"
                                          Text="{Binding PhanTramGiamGia, StringFormat={}{0}%}"/>
                             </Grid>
@@ -257,10 +245,10 @@
 
         <!-- ══════════ ROW 8 — Card: Tổng tiền ══════════ -->
         <Border Grid.Row="8"
-                Background="#22203A"
+                Background="#F9F9F9"
                 CornerRadius="14"
                 BorderThickness="1.5"
-                BorderBrush="#3D3860"
+                BorderBrush="#DDDDDD"
                 Padding="18,16">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -270,7 +258,7 @@
 
                 <StackPanel Grid.Column="0" VerticalAlignment="Center">
                     <TextBlock Text="Tổng thanh toán"
-                               Foreground="#9490B0"
+                               Foreground="Black"
                                FontSize="12"
                                FontWeight="SemiBold"/>
                     <TextBlock Foreground="#9490B0"
@@ -287,7 +275,7 @@
                 <StackPanel Grid.Column="1" VerticalAlignment="Center"
                             HorizontalAlignment="Right">
                     <TextBlock Text="{Binding TongTien, StringFormat={}{0:N0} đ}"
-                               Foreground="#F0EEF8"
+                               Foreground="Black"
                                FontSize="24"
                                FontWeight="Bold"
                                HorizontalAlignment="Right"/>
@@ -317,7 +305,7 @@
             <Grid Margin="0,12,0,12">
                 <Border Height="1" Background="#2E2B4A"
                         VerticalAlignment="Center"/>
-                <Border Background="#13111F"
+                <Border Background="#F9F9F9"
                         Padding="10,0"
                         HorizontalAlignment="Center">
                     <TextBlock Text="hoặc"

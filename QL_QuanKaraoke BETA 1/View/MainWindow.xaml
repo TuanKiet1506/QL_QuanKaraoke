@@ -7,14 +7,73 @@
         xmlns:local="clr-namespace:QL_QuanKaraoke_BETA_1"
         mc:Ignorable="d"
         Title="MainWindow" Height="850" Width="1280" DataContext="{StaticResource MainVM}"
-        Background="#272537" WindowStyle="None" ResizeMode="CanResize" AllowsTransparency="True"
+        Background="#F8F9FA" WindowStyle="None" ResizeMode="CanResize" AllowsTransparency="True"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" Name="MainWD" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style x:Key="LightMenuButtonStyle" TargetType="RadioButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#344054"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="20,0,0,0"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="4,0,0,0" BorderBrush="Transparent" Margin="5,2,5,2">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#F2F4F7"/>
+                                <Setter Property="Foreground" Value="#101828"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#F4F3FF"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="#7C5CFC"/>
+                                <Setter Property="Foreground" Value="#7C5CFC"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="LightLogoutButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FEF3F2"/>
+            <Setter Property="Foreground" Value="#B42318"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="#FECDCA" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FEE4E2"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#FECDCA"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=MainWD}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Border Background="#272537" CornerRadius="20">
+
+    <Border Background="#F8F9FA" BorderBrush="#D0D5DD" BorderThickness="1" CornerRadius="20">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
@@ -26,245 +85,161 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <!-- Top Control Bar -->
+            <Border Grid.Column="0" Grid.RowSpan="2" Background="#FFFFFF" BorderBrush="#E4E7EC" BorderThickness="0,0,1,0" CornerRadius="20,0,0,20"/>
+
             <StackPanel Grid.Row="0"
-                Grid.Column="1"
-                Style="{StaticResource ControlBarPanelStyle}">
+                        Grid.Column="1"
+                        Style="{StaticResource ControlBarPanelStyle}">
                 <Button Style="{StaticResource MinimizeButtonStyle}"
-                Command="{Binding MinimizeCommand}"
-                CommandParameter="{Binding ElementName=MainWD}"/>
+                        Command="{Binding MinimizeCommand}"
+                        CommandParameter="{Binding ElementName=MainWD}"/>
 
                 <Button Style="{StaticResource MaximizeButtonStyle}"
-                Command="{Binding MaximizeCommand}"
-                CommandParameter="{Binding ElementName=MainWD}"/>
+                        Command="{Binding MaximizeCommand}"
+                        CommandParameter="{Binding ElementName=MainWD}"/>
 
                 <Button Style="{StaticResource CloseButtonStyle}"
-                Command="{Binding ExitCommand}"
-                CommandParameter="{Binding ElementName=MainWD}"/>
+                        Command="{Binding ExitCommand}"
+                        CommandParameter="{Binding ElementName=MainWD}"/>
             </StackPanel>
 
-            <!-- Title -->
             <TextBlock Grid.Row="0"
-               Grid.Column="0"
-               Text="Quán Karaoke"
-               Foreground="White"
-               FontSize="22"
-               VerticalAlignment="Center"
-               Margin="20,0,0,0"/>
+                       Grid.Column="0"
+                       Text="Quán Karaoke"
+                       Foreground="#101828"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"
+                       Margin="20,0,0,0"/>
 
-            <!-- Sidebar -->
             <Grid Grid.Row="1" Grid.Column="0">
-
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <!-- MENU -->
-                <ScrollViewer>
-                <StackPanel Grid.Row="0">
-                    <RadioButton Foreground="White"
-                         Style="{StaticResource MenuButtonTheme}"
-                         Content="Trang Chủ"
-                         Command="{Binding TrangChuCommand}"
-                         Height="50"
-                         IsChecked="True"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel Grid.Row="0">
+                        <RadioButton Style="{StaticResource LightMenuButtonStyle}"
+                                     Content="Trang Chủ"
+                                     Command="{Binding TrangChuCommand}"
+                                     IsChecked="True"/>
 
-                    <RadioButton Foreground="White"
-                         Style="{StaticResource MenuButtonTheme}"
-                         Content="Đặt Phòng"
-                         Command="{Binding DatPhongCommand}"
-                         Height="50"/>
-                    
-                    
-                    <RadioButton Foreground="White"
-                         Style="{StaticResource MenuButtonTheme}"
-                         Content="Khách Hàng"
-                         Command="{Binding QLKhachHangCommand}"
-                         Height="50"/>
+                        <RadioButton Style="{StaticResource LightMenuButtonStyle}"
+                                     Content="Đặt Phòng"
+                                     Command="{Binding DatPhongCommand}"/>
 
-                    <RadioButton Foreground="White"
-                                 Style="{StaticResource MenuButtonTheme}"
-                                 Content="Hóa Đơn"
-                                 Command="{Binding QLHoaDonCommand}"
-                                 Height="50"/>
+                        <RadioButton Style="{StaticResource LightMenuButtonStyle}"
+                                     Content="Khách Hàng"
+                                     Command="{Binding QLKhachHangCommand}"/>
 
-                    <!-- ADMIN MENU -->
-                    <RadioButton Foreground="White"
-                         Content="Quản lý nhân viên"
-                         Height="50"
-                         Command="{Binding QLNhanVienCommand}">
+                        <RadioButton Style="{StaticResource LightMenuButtonStyle}"
+                                     Content="Hóa Đơn"
+                                     Command="{Binding QLHoaDonCommand}"/>
 
-                        <RadioButton.Style>
-                            <Style TargetType="RadioButton"
-                           BasedOn="{StaticResource MenuButtonTheme}">
+                        <RadioButton Content="Quản lý nhân viên" Command="{Binding QLNhanVienCommand}">
+                            <RadioButton.Style>
+                                <Style TargetType="RadioButton" BasedOn="{StaticResource LightMenuButtonStyle}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding DataContext.IsAdmin, ElementName=MainWD}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
 
-                                <Setter Property="Visibility" Value="Collapsed"/>
+                        <RadioButton Content="Dịch Vụ" Command="{Binding QLDichVuCommand}">
+                            <RadioButton.Style>
+                                <Style TargetType="RadioButton" BasedOn="{StaticResource LightMenuButtonStyle}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding DataContext.IsAdmin, ElementName=MainWD}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
 
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding DataContext.IsAdmin, ElementName=MainWD}"
-                                         Value="True">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
+                        <RadioButton Content="Hạng Thành Viên" Command="{Binding QLHangThanhVienCommand}">
+                            <RadioButton.Style>
+                                <Style TargetType="RadioButton" BasedOn="{StaticResource LightMenuButtonStyle}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding DataContext.IsAdmin, ElementName=MainWD}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
 
-                            </Style>
-                        </RadioButton.Style>
+                        <RadioButton Content="Quản lý phòng" Command="{Binding QLPhongCommand}">
+                            <RadioButton.Style>
+                                <Style TargetType="RadioButton" BasedOn="{StaticResource LightMenuButtonStyle}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding DataContext.IsAdmin, ElementName=MainWD}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
 
-                    </RadioButton>
-                    <RadioButton Foreground="White"
-                         Content="Dịch Vụ"
-                         Height="50"
-                         Command="{Binding QLDichVuCommand}">
+                        <RadioButton Content="Bảng Giá" Command="{Binding QLBangGiaCommand}">
+                            <RadioButton.Style>
+                                <Style TargetType="RadioButton" BasedOn="{StaticResource LightMenuButtonStyle}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding DataContext.IsAdmin, ElementName=MainWD}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
 
-                        <RadioButton.Style>
-                            <Style TargetType="RadioButton"
-                           BasedOn="{StaticResource MenuButtonTheme}">
+                        <RadioButton Content="Lịch sử đăng nhập" Command="{Binding QLDangNhapCommand}">
+                            <RadioButton.Style>
+                                <Style TargetType="RadioButton" BasedOn="{StaticResource LightMenuButtonStyle}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding DataContext.IsAdmin, ElementName=MainWD}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
 
-                                <Setter Property="Visibility" Value="Collapsed"/>
-
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding DataContext.IsAdmin, ElementName=MainWD}"
-                                         Value="True">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-
-                            </Style>
-                        </RadioButton.Style>
-
-                    </RadioButton>
-
-                    <RadioButton Foreground="White"
-                         Content="Hạng Thành Viên"
-                         Height="50"
-                         Command="{Binding QLHangThanhVienCommand}">
-
-                        <RadioButton.Style>
-                            <Style TargetType="RadioButton"
-                           BasedOn="{StaticResource MenuButtonTheme}">
-
-                                <Setter Property="Visibility" Value="Collapsed"/>
-
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding DataContext.IsAdmin, ElementName=MainWD}"
-                                         Value="True">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-
-                            </Style>
-                        </RadioButton.Style>
-
-                    </RadioButton>
-                    <RadioButton Foreground="White"
-                         Content="Quản lý phòng"
-                         Height="50"
-                         Command="{Binding QLPhongCommand}">
-
-                        <RadioButton.Style>
-                            <Style TargetType="RadioButton"
-                           BasedOn="{StaticResource MenuButtonTheme}">
-
-                                <Setter Property="Visibility" Value="Collapsed"/>
-
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding DataContext.IsAdmin, ElementName=MainWD}"
-                                         Value="True">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-
-                            </Style>
-                        </RadioButton.Style>
-
-                    </RadioButton>
-
-                    <RadioButton Foreground="White"
-                         Content="Bảng Giá"
-                         Height="50"
-                         Command="{Binding QLBangGiaCommand}">
-
-                        <RadioButton.Style>
-                            <Style TargetType="RadioButton"
-                           BasedOn="{StaticResource MenuButtonTheme}">
-
-                                <Setter Property="Visibility" Value="Collapsed"/>
-
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding DataContext.IsAdmin, ElementName=MainWD}"
-                                         Value="True">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-
-                            </Style>
-                        </RadioButton.Style>
-
-                    </RadioButton>
-                    <RadioButton Foreground="White"
-                         Content="Lịch sử đăng nhập"
-                         Height="50"
-                         Command="{Binding QLDangNhapCommand}">
-
-                        <RadioButton.Style>
-                            <Style TargetType="RadioButton"
-                           BasedOn="{StaticResource MenuButtonTheme}">
-
-                                <Setter Property="Visibility" Value="Collapsed"/>
-
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding DataContext.IsAdmin, ElementName=MainWD}"
-                                         Value="True">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-
-                            </Style>
-                        </RadioButton.Style>
-
-                    </RadioButton>
-                    <RadioButton Foreground="White"
-                         Content="Hệ Thống"
-                         Height="50"
-                         Command="{Binding QLHeThongCommand}">
-
-                        <RadioButton.Style>
-                            <Style TargetType="RadioButton"
-                           BasedOn="{StaticResource MenuButtonTheme}">
-
-                                <Setter Property="Visibility" Value="Collapsed"/>
-
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding DataContext.IsAdmin, ElementName=MainWD}"
-                                         Value="True">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-
-                            </Style>
-                        </RadioButton.Style>
-
-                    </RadioButton>
-
-                        
-                </StackPanel>
-
+                        <RadioButton Content="Hệ Thống" Command="{Binding QLHeThongCommand}">
+                            <RadioButton.Style>
+                                <Style TargetType="RadioButton" BasedOn="{StaticResource LightMenuButtonStyle}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding DataContext.IsAdmin, ElementName=MainWD}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
+                    </StackPanel>
                 </ScrollViewer>
 
-                <!-- LOGOUT BUTTON -->
                 <Button Grid.Row="1"
-                Content="Đăng Xuất"
-                Height="45"
-                Margin="10" Style="{StaticResource ModernButton}"
-                Command="{Binding LogoutCommand}" CommandParameter="{Binding ElementName=MainWD}"
-                />
-
+                        Content="Đăng Xuất"
+                        Height="45"
+                        Margin="12" 
+                        Style="{StaticResource LightLogoutButtonStyle}"
+                        Command="{Binding LogoutCommand}" 
+                        CommandParameter="{Binding ElementName=MainWD}"/>
             </Grid>
 
-            <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding CurrentView}">
-                
-            </ContentControl>
+            <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding CurrentView}"/>
         </Grid>
     </Border>
 </Window>

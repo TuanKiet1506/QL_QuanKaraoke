@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QL_QuanKaraoke_BETA_1"
         mc:Ignorable="d"
-        Title="MenuPhongTrong" Height="290"
+        Title="MenuPhongTrong" Height="240"
         Width="280" SizeToContent="Height"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
@@ -13,7 +13,7 @@
         AllowsTransparency="True"
         Background="Transparent" Name="ChuyenPhongTrongWD"
         DataContext="{StaticResource MenuPhongTrongVM}">
-    <Border Background="#272537"
+    <Border Background="White"
         CornerRadius="14"
         Padding="20,16,20,20">
 
@@ -29,7 +29,7 @@
             <!-- ── Tiêu đề + nút đóng ── -->
             <Grid Margin="0,0,0,12">
                 <TextBlock Text="Chọn trạng thái"
-                       Foreground="White"
+                       Foreground="Black"
                        FontSize="15"
                        FontWeight="Bold"
                        FontFamily="Segoe UI"

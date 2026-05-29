@@ -4,50 +4,54 @@
              xmlns:conv="clr-namespace:QL_QuanKaraoke_BETA_1.Converters"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:QL_QuanKaraoke_BETA_1"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="Transparent"
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="#F0F0F0"
              DataContext="{StaticResource DatPhongVM}">
+
     <UserControl.Resources>
         <!-- Converters -->
         <conv:TrangThaiToBrushConverter  x:Key="TrangThaiToBrush"/>
         <conv:TrangThaiToLabelConverter  x:Key="TrangThaiToLabel"/>
         <conv:TrangThaiToDotConverter    x:Key="TrangThaiToDot"/>
-        <conv:TrangThaiToDropShadowConverter x:Key="TrangThaiToDropShadow"/>
-        <!-- Style: ô stat -->
+
+        <!-- Style: ô thống kê -->
         <Style x:Key="StatCard" TargetType="Border">
-            <Setter Property="Background"   Value="#2A2740"/>
-            <Setter Property="CornerRadius" Value="14"/>
-            <Setter Property="Padding"      Value="0,18"/>
-            <Setter Property="Margin"       Value="0,0,12,0"/>
+            <Setter Property="Background"    Value="White"/>
+            <Setter Property="BorderBrush"   Value="#DDDDDD"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius"  Value="0"/>
+            <Setter Property="Padding"       Value="0,16"/>
+            <Setter Property="Margin"        Value="0,0,10,0"/>
         </Style>
 
         <!-- Style: số lớn trong stat -->
         <Style x:Key="StatNum" TargetType="TextBlock">
-            <Setter Property="Foreground"           Value="White"/>
-            <Setter Property="FontSize"             Value="30"/>
-            <Setter Property="FontWeight"           Value="Bold"/>
-            <Setter Property="HorizontalAlignment"  Value="Center"/>
+            <Setter Property="Foreground"          Value="#222222"/>
+            <Setter Property="FontSize"            Value="28"/>
+            <Setter Property="FontWeight"          Value="Medium"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
 
         <!-- Style: nhãn nhỏ dưới số -->
         <Style x:Key="StatLabel" TargetType="TextBlock">
-            <Setter Property="Foreground"           Value="#9490B0"/>
-            <Setter Property="FontSize"             Value="11"/>
-            <Setter Property="HorizontalAlignment"  Value="Center"/>
-            <Setter Property="Margin"               Value="0,4,0,0"/>
+            <Setter Property="Foreground"          Value="#666666"/>
+            <Setter Property="FontSize"            Value="11"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin"              Value="0,4,0,0"/>
         </Style>
     </UserControl.Resources>
-    <Grid Margin="24,20,24,20">
+
+    <Grid Margin="20,16,20,16">
         <Grid.RowDefinitions>
             <!-- Tiêu đề -->
             <RowDefinition Height="Auto"/>
             <!-- Khoảng cách -->
-            <RowDefinition Height="16"/>
+            <RowDefinition Height="14"/>
             <!-- Stats bar -->
             <RowDefinition Height="Auto"/>
             <!-- Khoảng cách -->
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="18"/>
             <!-- Nhãn section -->
             <RowDefinition Height="Auto"/>
             <!-- Khoảng cách -->
@@ -58,12 +62,14 @@
 
         <!-- ══════════════ ROW 0 — Tiêu đề ══════════════ -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
-            <TextBlock Text="🎤"  FontSize="22" VerticalAlignment="Center" Margin="0,0,10,0"
-                       Foreground="#F88888"/>
+            <TextBlock Text="🎤"
+                       FontSize="20"
+                       VerticalAlignment="Center"
+                       Margin="0,0,8,0"/>
             <TextBlock Text="Đặt Phòng"
-                       Foreground="White"
-                       FontSize="22"
-                       FontWeight="Bold"
+                       Foreground="#111111"
+                       FontSize="20"
+                       FontWeight="Medium"
                        VerticalAlignment="Center"/>
         </StackPanel>
 
@@ -91,7 +97,7 @@
                 <StackPanel>
                     <TextBlock Text="{Binding SoPhongTrong}"
                                Style="{StaticResource StatNum}"
-                               Foreground="#4ADE80"/>
+                               Foreground="#16A34A"/>
                     <TextBlock Text="Đang trống"
                                Style="{StaticResource StatLabel}"/>
                 </StackPanel>
@@ -102,7 +108,7 @@
                 <StackPanel>
                     <TextBlock Text="{Binding SoPhongDangDung}"
                                Style="{StaticResource StatNum}"
-                               Foreground="#F87171"/>
+                               Foreground="#DC2626"/>
                     <TextBlock Text="Đang dùng"
                                Style="{StaticResource StatLabel}"/>
                 </StackPanel>
@@ -113,7 +119,7 @@
                 <StackPanel>
                     <TextBlock Text="{Binding SoPhongKhac}"
                                Style="{StaticResource StatNum}"
-                               Foreground="#FBBF24"/>
+                               Foreground="#D97706"/>
                     <TextBlock Text="Dọn dẹp / Bảo trì"
                                Style="{StaticResource StatLabel}"/>
                 </StackPanel>
@@ -121,16 +127,17 @@
         </Grid>
 
         <!-- ══════════════ ROW 4 — Nhãn section ══════════════ -->
-        <StackPanel Grid.Row="4" Orientation="Horizontal">
+        <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center">
             <TextBlock Text="Danh sách phòng"
-                       Foreground="#9490B0"
+                       Foreground="#555555"
                        FontSize="13"
-                       FontWeight="SemiBold"
                        VerticalAlignment="Center"/>
-            <Border Background="#2A2740" CornerRadius="10"
-                    Padding="10,3" Margin="10,0,0,0">
+            <Border Background="#E0E0E0"
+                    CornerRadius="0"
+                    Padding="8,2"
+                    Margin="8,0,0,0">
                 <TextBlock Text="{Binding TongPhong, StringFormat={}{0} phòng}"
-                           Foreground="#9490B0"
+                           Foreground="#555555"
                            FontSize="11"
                            VerticalAlignment="Center"/>
             </Border>
@@ -155,9 +162,9 @@
                                 BorderThickness="0"
                                 Padding="0"
                                 Cursor="Hand"
-                                Command="{Binding DataContext.MoMenuCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                CommandParameter="{Binding}"
-                                >
+                                Command="{Binding DataContext.MoMenuCommand,
+                                          RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                CommandParameter="{Binding}">
 
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
@@ -165,36 +172,15 @@
                                 </ControlTemplate>
                             </Button.Template>
 
-                            <Border Width="190" Height="128"
-                                Margin="0,0,14,14"
-                                CornerRadius="16"
-                                Background="#22203A"
-                                BorderThickness="1.5"
-                                BorderBrush="{Binding TrangThai,
-                                              Converter={StaticResource TrangThaiToBrush}}">
+                            <Border Width="180" Height="118"
+                                    Margin="0,0,12,12"
+                                    CornerRadius="0"
+                                    Background="White"
+                                    BorderThickness="2"
+                                    BorderBrush="{Binding TrangThai,
+                                                  Converter={StaticResource TrangThaiToBrush}}">
 
-
-                                <Border.Style>
-                                    <Style TargetType="Border">
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding IsMouseOver,
-                                                   RelativeSource={RelativeSource AncestorType=Button}}"
-                                         Value="True">
-                                                <Setter Property="Effect"
-                                        Value="{Binding TrangThai,
-                                                Converter={StaticResource TrangThaiToDropShadow}}"/>
-                                                <!-- Nhấc nhẹ lên khi hover -->
-                                                <Setter Property="RenderTransform">
-                                                    <Setter.Value>
-                                                        <TranslateTransform Y="-1"/>
-                                                    </Setter.Value>
-                                                </Setter>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Border.Style>
-
-                                <Grid Margin="14,12,14,12">
+                                <Grid Margin="12,10,12,10">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="*"/>
@@ -203,65 +189,66 @@
 
                                     <!-- Dòng 1: Badge loại phòng + Tên phòng -->
                                     <StackPanel Grid.Row="0"
-                                            Orientation="Horizontal"
-                                            VerticalAlignment="Center">
+                                                Orientation="Horizontal"
+                                                VerticalAlignment="Center">
 
-                                        <Border CornerRadius="6" Padding="7,3" Margin="0,0,8,0"
-                                            Background="{Binding TrangThai,
-                                                         Converter={StaticResource TrangThaiToBrush}}">
+                                        <Border CornerRadius="0"
+                                                Padding="6,2"
+                                                Margin="0,0,8,0"
+                                                Background="{Binding TrangThai,
+                                                             Converter={StaticResource TrangThaiToBrush}}">
                                             <TextBlock Text="{Binding LoaiPhong.TenLoai}"
-                                                   Foreground="White"
-                                                   FontSize="10"
-                                                   FontWeight="Bold"/>
+                                                       Foreground="White"
+                                                       FontSize="10"
+                                                       FontWeight="Medium"/>
                                         </Border>
 
                                         <TextBlock Text="{Binding TenPhong}"
-                                               Foreground="White"
-                                               FontSize="19"
-                                               FontWeight="Bold"
-                                               VerticalAlignment="Center"/>
+                                                   Foreground="#111111"
+                                                   FontSize="18"
+                                                   FontWeight="Medium"
+                                                   VerticalAlignment="Center"/>
                                     </StackPanel>
 
                                     <!-- Dòng 2: Sức chứa -->
                                     <StackPanel Grid.Row="1"
-                                            Orientation="Horizontal"
-                                            VerticalAlignment="Center"
-                                            Margin="0,6,0,0">
-                                        <TextBlock Text="👥  " FontSize="12"
-                                               VerticalAlignment="Center"/>
-                                        <TextBlock Foreground="#9490B0" FontSize="12"
-                                               VerticalAlignment="Center">
-                                        <Run Text="Sức chứa: "/>
-                                        <Run Text="{Binding SucChua}"
-                                             Foreground="White" FontWeight="SemiBold"/>
-                                        <Run Text=" người" Foreground="#9490B0"/>
+                                                Orientation="Horizontal"
+                                                VerticalAlignment="Center"
+                                                Margin="0,6,0,0">
+                                        <TextBlock Text="👥  "
+                                                   FontSize="12"
+                                                   VerticalAlignment="Center"/>
+                                        <TextBlock Foreground="#666666"
+                                                   FontSize="12"
+                                                   VerticalAlignment="Center">
+                                            <Run Text="Sức chứa: "/>
+                                            <Run Text="{Binding SucChua}"
+                                                 Foreground="#111111"
+                                                 FontWeight="Medium"/>
+                                            <Run Text=" người"
+                                                 Foreground="#666666"/>
                                         </TextBlock>
                                     </StackPanel>
 
-                                    <!-- Dòng 3: Badge trạng thái -->
-                                    <Border Grid.Row="2"
-                                        CornerRadius="20"
-                                        Padding="10,4"
-                                        HorizontalAlignment="Left"
-                                        Background="{Binding TrangThai,
-                                                     Converter={StaticResource TrangThaiToBrush},
-                                                     ConverterParameter=dim}">
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding TrangThai,
-                                                           Converter={StaticResource TrangThaiToDot}}"
+                                    <!-- Dòng 3: Trạng thái (không có border, để thẳng) -->
+                                    <StackPanel Grid.Row="2"
+                                                Orientation="Horizontal"
+                                                VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding TrangThai,
+                                                       Converter={StaticResource TrangThaiToDot}}"
                                                    FontSize="9"
                                                    Foreground="{Binding TrangThai,
                                                                 Converter={StaticResource TrangThaiToBrush}}"
                                                    VerticalAlignment="Center"
-                                                   Margin="0,0,4,0"/>
-                                            <TextBlock Text="{Binding TrangThai,
-                                                           Converter={StaticResource TrangThaiToLabel}}"
-                                                   FontSize="11"
-                                                   FontWeight="SemiBold"
-                                                   Foreground="White"
+                                                   Margin="0,0,5,0"/>
+                                        <TextBlock Text="{Binding TrangThai,
+                                                       Converter={StaticResource TrangThaiToLabel}}"
+                                                   FontSize="12"
+                                                   FontWeight="Medium"
+                                                   Foreground="{Binding TrangThai,
+                                                                Converter={StaticResource TrangThaiToBrush}}"
                                                    VerticalAlignment="Center"/>
-                                        </StackPanel>
-                                    </Border>
+                                    </StackPanel>
 
                                 </Grid>
                             </Border>
