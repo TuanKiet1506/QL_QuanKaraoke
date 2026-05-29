@@ -12,24 +12,13 @@
         ResizeMode="NoResize"
         AllowsTransparency="True"
         Name="SuaGiaWD" DataContext="{StaticResource SuaGiaVM}">
-    <Border CornerRadius="20" Background="#1A1A2E">
+    <Border CornerRadius="20" Background="White">
 
         <Border.Effect>
             <DropShadowEffect Color="#000000" BlurRadius="30" ShadowDepth="0" Opacity="0.6"/>
         </Border.Effect>
 
         <Grid>
-
-            <Border Height="3"
-                    VerticalAlignment="Top"
-                    CornerRadius="20,20,0,0">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="#F07070" Offset="0"/>
-                        <GradientStop Color="#F9A8A8" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
 
             <StackPanel>
 
@@ -43,7 +32,6 @@
                     <!-- Icon + Tiêu đề -->
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Border Width="36" Height="36"
-                                CornerRadius="10"
                                 Margin="0,0,12,0">
                             <Border.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -87,8 +75,7 @@
                 <StackPanel Margin="32,28,32,0">
 
                     <!-- Mô tả -->
-                    <Border Background="#22223A"
-                            CornerRadius="8"
+                    <Border Background="#FFF3F3"
                             Padding="14,10"
                             Margin="0,0,0,24">
                         <StackPanel Orientation="Horizontal">
@@ -98,7 +85,7 @@
                                        VerticalAlignment="Top"
                                        Margin="0,0,8,0"/>
                             <TextBlock Text="Vui lòng nhập đúng thông tin để xác nhận đơn giá phòng."
-                                       Foreground="#AAAACC"
+                                       Foreground="#C0392B"
                                        FontSize="12"
                                        FontFamily="Segoe UI"
                                        TextWrapping="Wrap"/>
@@ -108,16 +95,17 @@
 
                     <!-- HỌ TÊN -->
                     <TextBlock Text="Giá Cũ"
-                               Foreground="#CCCCDD"
+                               Foreground="Black"
                                FontSize="12"
                                FontFamily="Segoe UI"
                                FontWeight="SemiBold"
                                Margin="0,0,0,6"/>
 
-                    <Border Background="#353340"
-                            CornerRadius="8"
+                    <Border Background="White"
                             Height="46"
-                            Margin="0,0,0,16">
+                            Margin="0,0,0,16"
+                            BorderBrush="#CCCCCC"
+                            BorderThickness="1">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="44"/>
@@ -128,7 +116,7 @@
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
                                        FontSize="20"
-                                       Foreground="#888899"/>
+                                       Foreground="Black"/>
 
                             <TextBox Grid.Column="1"
                                      Background="Transparent"
@@ -137,7 +125,6 @@
                                      FontSize="14"
                                      VerticalContentAlignment="Center"
                                      Padding="4,0,10,0"
-                                     Style="{StaticResource TextBoxTheme}"
                                      Text="{Binding GiaCu, StringFormat={}{0:N0}đ}"
                                      IsReadOnly="True"/>
                         </Grid>
@@ -145,16 +132,17 @@
 
                     <!-- SỐ ĐIỆN THOẠI -->
                     <TextBlock Text="Giá Mới"
-                               Foreground="#CCCCDD"
+                               Foreground="Black"
                                FontSize="12"
                                FontFamily="Segoe UI"
                                FontWeight="SemiBold"
                                Margin="0,0,0,6"/>
 
-                    <Border Background="#353340"
-                            CornerRadius="8"
+                    <Border Background="White"
                             Height="46"
-                            Margin="0,0,0,16">
+                            Margin="0,0,0,16"
+                            BorderBrush="#CCCCCC"
+                            BorderThickness="1">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="44"/>
@@ -162,7 +150,7 @@
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Text="💰"
-                                       Foreground="#888899"
+                                       Foreground="Black"
                                        FontSize="15"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
@@ -174,8 +162,6 @@
                                      FontSize="14"
                                      VerticalContentAlignment="Center"
                                      Padding="4,0,10,0"
-                                     Style="{StaticResource TextBoxTheme}"
-                                     Tag="Nhập Giá Mới"
                                      Text="{Binding GiaMoi, UpdateSourceTrigger=PropertyChanged}"/>
                         </Grid>
                     </Border>
