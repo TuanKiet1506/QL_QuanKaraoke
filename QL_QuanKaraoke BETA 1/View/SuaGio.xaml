@@ -8,7 +8,7 @@
         Title="SuaGio" DataContext="{StaticResource SuaGioVM}"
         Height="600" Width="560"
         WindowStartupLocation="CenterScreen"
-        Background="#13111F"
+        Background="White"
         ResizeMode="NoResize"
         Name="SuaGioWD">
     <Grid Margin="32,28,32,28">
@@ -35,17 +35,17 @@
 
         <!-- ══════════ ROW 0 — Tiêu đề ══════════ -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
-            <Border Background="#2A2740" CornerRadius="10"
+            <Border Background="#F88888"
                     Padding="10,8" Margin="0,0,12,0">
-                <TextBlock Text="🕒" FontSize="18" Foreground="#F88888"/>
+                <TextBlock Text="🕒" FontSize="18" Foreground="Black"/>
             </Border>
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="Sửa Giờ Phục Vụ"
-                           Foreground="#F0EEF8"
+                           Foreground="#F88888"
                            FontSize="20"
                            FontWeight="Bold"/>
                 <TextBlock Text="Thay đổi giờ quán mở/đóng cửa"
-                           Foreground="#9490B0"
+                           Foreground="Black"
                            FontSize="11"
                            Margin="0,2,0,0"/>
             </StackPanel>
@@ -53,20 +53,16 @@
 
         <!-- ══════════ ROW 2 — Card: Phòng Hiện Tại ══════════ -->
         <Border Grid.Row="2"
-                Background="#1E1C31"
-                CornerRadius="14"
+                Background="#FFF3F3"
                 BorderThickness="1.5"
-                BorderBrush="#2E2B4A"
+                BorderBrush="#F88888"
                 Padding="20,16">
             <StackPanel>
 
                 <!-- Nhãn section -->
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
-                    <Border Width="4" Height="16" CornerRadius="2"
-                            Background="#F87171" Margin="0,0,8,0"
-                            VerticalAlignment="Center"/>
                     <TextBlock Text="Khung giờ hiện tại"
-                               Foreground="#F87171"
+                               Foreground="Red"
                                FontSize="12"
                                FontWeight="SemiBold"
                                VerticalAlignment="Center"/>
@@ -83,22 +79,22 @@
                     <!-- Tên phòng -->
                     <StackPanel Grid.Column="0">
                         <TextBlock Text="Giờ Vào"
-                                   Foreground="#9490B0"
+                                   Foreground="Black"
                                    FontSize="11"
                                    Margin="0,0,0,6"/>
-                        <Border Background="#353340"
-                                CornerRadius="8"
+                        <Border Background="White"
                                 Height="25"
-                                Margin="0,0,0,14">
+                                Margin="0,0,0,14"
+                                BorderBrush="#CCCCCC"
+                                BorderThickness="1">
                             <Grid>
                                 <TextBox
                                          Background="Transparent"
                                          BorderThickness="0"
-                                         Foreground="#E6E6E6"
+                                         Foreground="Black"
                                          FontSize="14"
                                          VerticalContentAlignment="Center"
                                          Padding="4,0,10,0"
-                                         Style="{StaticResource TextBoxTheme}"
                                          IsReadOnly="True"
                                          Text="{Binding GioVaoCu}"/>
                             </Grid>
@@ -109,22 +105,22 @@
                     <!-- Sức chứa -->
                     <StackPanel Grid.Column="2">
                         <TextBlock Text="Giờ Ra"
-                                   Foreground="#9490B0"
+                                   Foreground="Black"
                                    FontSize="11"
                                    Margin="0,0,0,6"/>
-                        <Border Background="#353340"
-                                CornerRadius="8"
+                        <Border Background="White"
                                 Height="25"
-                                Margin="0,0,0,14">
+                                Margin="0,0,0,14"
+                                BorderBrush="#CCCCCC"
+                                BorderThickness="1">
                             <Grid>
                                 <TextBox
                                          Background="Transparent"
                                          BorderThickness="0"
-                                         Foreground="#E6E6E6"
+                                         Foreground="Black"
                                          FontSize="14"
                                          VerticalContentAlignment="Center"
                                          Padding="4,0,10,0"
-                                         Style="{StaticResource TextBoxTheme}"
                                          IsReadOnly="True"
                                          Text="{Binding GioRaCu}"/>
                             </Grid>
@@ -140,15 +136,15 @@
         <!-- ══════════ ROW 4 — Mũi tên ══════════ -->
         <StackPanel Grid.Row="4" Orientation="Horizontal"
                     HorizontalAlignment="Center">
-            <Border Background="#22203A" CornerRadius="20"
-                    Padding="18,8">
+            <Border Background="#FFF3F3" CornerRadius="20"
+                    Padding="18,8" BorderBrush="Red" BorderThickness="1">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="⬇" FontSize="14"
                                Foreground="#7C5CFC"
                                VerticalAlignment="Center"
                                Margin="0,0,8,0"/>
                     <TextBlock Text="Đổi sang khung giờ"
-                               Foreground="#9490B0"
+                               Foreground="Black"
                                FontSize="12"
                                VerticalAlignment="Center"/>
                 </StackPanel>
@@ -157,20 +153,16 @@
 
         <!-- ══════════ ROW 6 — Card: Phòng Mới ══════════ -->
         <Border Grid.Row="6"
-                Background="#1E1C31"
-                CornerRadius="14"
+                Background="#FFF3F3"
                 BorderThickness="1.5"
-                BorderBrush="#2E2B4A"
+                BorderBrush="#F88888"
                 Padding="20,16">
             <StackPanel>
 
                 <!-- Nhãn section -->
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
-                    <Border Width="4" Height="16" CornerRadius="2"
-                            Background="#4ADE80" Margin="0,0,8,0"
-                            VerticalAlignment="Center"/>
                     <TextBlock Text="Khung giờ thay đổi"
-                               Foreground="#4ADE80"
+                               Foreground="DarkGreen"
                                FontSize="12"
                                FontWeight="SemiBold"
                                VerticalAlignment="Center"/>
@@ -187,11 +179,10 @@
                     <!-- Tên phòng -->
                     <StackPanel Grid.Column="0">
                         <TextBlock Text="Giờ Vào"
-                                   Foreground="#9490B0"
+                                   Foreground="Black"
                                    FontSize="11"
                                    Margin="0,0,0,6"/>
-                        <Border Background="#353340"
-                                CornerRadius="8"
+                        <Border Background="White"
                                 Height="25"
                                 Margin="0,0,0,14">
                             <Grid>
@@ -202,7 +193,6 @@
                                          FontSize="14"
                                          VerticalContentAlignment="Center"
                                          Padding="4,0,10,0"
-                                         Style="{StaticResource ModernComboBox}"
                                          ItemsSource="{Binding DanhSachGio}"
                                          SelectedItem="{Binding GioVaoMoi}"
                                          />
@@ -214,11 +204,10 @@
                     <!-- Sức chứa -->
                     <StackPanel Grid.Column="2">
                         <TextBlock Text="Giờ Ra"
-                                   Foreground="#9490B0"
+                                   Foreground="Black"
                                    FontSize="11"
                                    Margin="0,0,0,6"/>
-                        <Border Background="#353340"
-                                CornerRadius="8"
+                        <Border Background="White"
                                 Height="25"
                                 Margin="0,0,0,14">
                             <Grid>
@@ -230,7 +219,6 @@
                                          FontSize="14"
                                          VerticalContentAlignment="Center"
                                          Padding="4,0,10,0"
-                                         Style="{StaticResource ModernComboBox}"
                                          ItemsSource="{Binding DanhSachGio}"
                                          SelectedItem="{Binding GioRaMoi}"
                                          />
